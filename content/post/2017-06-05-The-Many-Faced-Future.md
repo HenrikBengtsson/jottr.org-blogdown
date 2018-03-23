@@ -158,7 +158,7 @@ If you have access to one or more machines with R installed (e.g. a local or rem
 plan(cluster, workers = c("machine1", "machine2", "machine3.remote.org"))
 ```
 
-If you have access to a high-performance compute (HPC) cluster with a HPC scheduler (e.g. Slurm, TORQUE / PBS, LSF, and SGE), you can harness its power by switching to:
+If you have access to a high-performance compute (HPC) cluster with a HPC scheduler (e.g. Slurm, TORQUE / PBS, LSF, and SGE), then you can harness its power by switching to:
 ```r
 library("future.batchtools")
 plan(batchtools_sge)
