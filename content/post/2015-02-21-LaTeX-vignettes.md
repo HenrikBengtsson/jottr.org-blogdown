@@ -4,16 +4,15 @@ slug: "how-to-plain-latex-vignettes"
 aliases: [/2015/02/latex-vignettes.html]
 date: 2015-02-21
 categories:
-- R
+ - R
 tags:
-- R
-- package
-- R.rsp
-- vignette
-- how to
-- LaTeX
-- PDF
-- CRAN
+ - R
+ - package
+ - R.rsp
+ - vignette
+ - LaTeX
+ - PDF
+ - CRAN
 ---
 
 Ever wanted to include a plain-LaTeX vignette in your package and have it compiled into a PDF?  The [R.rsp] package provides a four-line solution for this.

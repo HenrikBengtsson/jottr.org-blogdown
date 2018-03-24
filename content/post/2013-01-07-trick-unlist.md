@@ -3,8 +3,12 @@ title: "Speed Trick: unlist(..., use.names=FALSE) is Heaps Faster!"
 slug: "trick-unlist"
 aliases: [2013/01/speed-trick-unlist-usenamesfalse-is.html]
 date: 2013-01-07
-categories: ["R"]
-tags: ["R", "names", "performance", "unlist"]
+categories:
+ - R
+tags:
+ - R
+ - performance
+ - unlist
 ---
 
 Sometimes a minor change to your R code can make a big difference in processing time. Here is an example showing that if you're don't care about the names attribute when `unlist()`:ing a list, specifying argument `use.names = FALSE` can speed up the processing lots!

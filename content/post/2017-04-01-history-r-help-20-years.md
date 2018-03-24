@@ -3,8 +3,13 @@ title: The R-help Community was Started on This Day 20 Years Ago
 slug: "history-r-help-20-years"
 aliases: [/2017/04/the-beginning-of-r-help.html]
 date: 2017-04-01
-categories: ["R"]
-tags: ["R", "R-help", "history"]
+categories:
+ - R
+tags:
+ - R
+ - history
+ - R-help
+ - mailing list
 ---
 
 Today, its been 20 years since Martin Mächler started the [R-help community list](https://stat.ethz.ch/pipermail/r-help/). The [first post](https://stat.ethz.ch/pipermail/r-help/1997-April/001488.html) was written by Ross Ihaka on 1997-04-01:

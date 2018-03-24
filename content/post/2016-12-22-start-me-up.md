@@ -4,16 +4,16 @@ slug: "startup"
 aliases: [/2016/12/start-me-up.html]
 date: 2016-12-22
 categories:
-- R
+ - R
 tags:
-- R
-- package
-- startup
-- Rprofile
-- Renviron
-- configuration
-- environment variables
-- options
+ - R
+ - package
+ - startup
+ - Rprofile
+ - Renviron
+ - configuration
+ - environment variables
+ - options
 ---
 
 The [startup] package makes it easy to control your R startup processes and to share part of your startup settings with others (e.g. as a public Git repository) while keeping secret parts to yourself.  Instead of having long and windy `.Renviron` and `.Rprofile` startup files, you can split them up into short specific files under corresponding `.Renviron.d/` and `.Rprofile.d/` directories.  For example,

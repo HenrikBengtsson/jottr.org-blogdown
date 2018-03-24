@@ -4,11 +4,12 @@ slug: "trick-fast-rm"
 date: 2014-05-26
 aliases: [/2014/05/captureOutput.html]
 categories:
-- R
+ - R
 tags:
-- R
-- performance
-- R.utils
+ - R
+ - performance
+ - R.utils
+ - capture.output
 ---
 
 

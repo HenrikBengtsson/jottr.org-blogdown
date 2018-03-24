@@ -4,14 +4,14 @@ slug: "matrixStats-0.13.1"
 aliases: [/2015/01/matrixStats-0.13.1.html]
 date: 2015-01-25
 categories:
-- R
+ - R
 tags:
-- R
-- package
-- matrixStats
-- performance
-- memory
-- matrix
+ - R
+ - package
+ - matrixStats
+ - performance
+ - memory
+ - matrix
 ---
 
 

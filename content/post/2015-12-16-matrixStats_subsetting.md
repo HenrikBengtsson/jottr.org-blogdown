@@ -4,15 +4,15 @@ slug: "matrixstats-subsetting"
 aliases: [/2015/12/matrixstats-subsetted-calculations.html]
 date: 2015-12-16
 categories:
-- R
+ - R
 tags:
-- R
-- performance
-- memory
-- matrix
-- matrixStats
-- garbage collection
-- GSoC
+ - R
+ - performance
+ - memory
+ - matrix
+ - matrixStats
+ - garbage collection
+ - GSoC
 ---
 
 

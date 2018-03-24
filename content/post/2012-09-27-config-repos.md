@@ -3,8 +3,18 @@ title: "Set Package Repositories at Startup"
 slug: "config-repos"
 aliases: [/2012/09/set-package-repositories-at-startup.html]
 date: 2012-09-27
-categories: ["R"]
-tags: ["R", "startup", "Rprofile", "configuration", "packages", "repositories", "options"]
+categories:
+ - R
+tags:
+ - R
+ - startup
+ - Rprofile
+ - configuration
+ - packages
+ - repositories
+ - CRAN
+ - Bioconductor
+ - options
 ---
 
 The below code shows how to configure the `repos` option in R such that `install.packages()` etc. will locate the packages without having to explicitly specify the repository.  Just add it to the `.Rprofile` file in your home directory (iff missing, create it). For more details, see `help("Startup")`.

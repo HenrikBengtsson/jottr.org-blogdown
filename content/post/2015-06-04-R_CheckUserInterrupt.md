@@ -4,13 +4,12 @@ aliases: [/2015/08/milestone-7000-packages-on-cran.html]
 slug: "checkuserinterrupt"
 date: 2015-06-05
 categories:
-- R
+ - R
 tags:
-- R
-- performance
-- native
-- C
-- user interrupts
+ - R
+ - performance
+ - C
+ - user interrupts
 ---
 
 If your native code takes more than a few seconds to finish, it is a nice courtesy to the user to check for user interrupts (Ctrl-C) once in a while, say, every 1,000 or 1,000,000 iteration.  The C-level API of R provides `R_CheckUserInterrupt()` for this (see 'Writing R Extensions' for more information on this function).  Here's what the code would typically look like:

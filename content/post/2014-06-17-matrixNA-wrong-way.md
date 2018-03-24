@@ -4,12 +4,14 @@ slug: "matrixNA-wrong-way"
 date: 2014-06-17
 aliases: [/2014/06/matrixNA-wrong-way.html]
 categories:
-- R
+ - R
 tags:
-- R
-- performance
-- memory
-- matrix
+ - R
+ - performance
+ - memory
+ - matrix
+ - garbage collection
+ - coercion
 ---
 
 ![Road sign reading "Wrong Way"](/post/wrong_way_035.jpg)

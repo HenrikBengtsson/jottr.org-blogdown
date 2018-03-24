@@ -4,11 +4,12 @@ slug: "milestone-cran-6000"
 aliases: [/2014/10/milestone-6000-packages-on-cran.html]
 date: 2014-10-29
 categories:
-- R
+ - R
 tags:
-- R
-- CRAN
-- milestone
+ - R
+ - CRAN
+ - milestone
+ - packages
 ---
 
 Another 1,000 packages were added to CRAN and this time in less than 12 months. Today (2014-10-29) on The Comprehensive R Archive Network (CRAN) package page:

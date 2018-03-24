@@ -4,21 +4,21 @@ slug: "many-faced-future"
 aliases: [/2017/06/the-many-faced-future.html]
 date: 2017-06-05
 categories:
-- R
+ - R
 tags:
-- R
-- package
-- future
-- doFuture
-- foreach
-- plyr
-- purr
-- lapply
-- parallel
-- HPC
-- asynchronous
-- compute clusters
-- cloud
+ - R
+ - package
+ - future
+ - doFuture
+ - foreach
+ - plyr
+ - purr
+ - lapply
+ - parallel
+ - HPC
+ - asynchronous
+ - compute clusters
+ - cloud
 ---
 
 
