@@ -4,7 +4,7 @@ slug: "config-help-start"
 aliases: [/2012/10/force-r-help-html-server-to-always-use.html]
 date: 2012-10-22
 categories: ["R"]
-tags: ["R", "startup", ".Rprofile", "help", "port", "server", "configuration"]
+tags: ["R", "startup", "Rprofile", "help", "port", "server", "configuration"]
 ---
 
 The below code shows how to configure the `help.ports` option in R such that the built-in R help server always uses the same URL port. Just add it to the `.Rprofile` file in your home directory (iff missing, create it). For more details, see `help("Startup")`.
