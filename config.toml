@@ -15,9 +15,8 @@
 # ADOPTED FROM:
 # * https://statr.me/
 # * https://github.com/yixuan/hugo-blog-en
-baseURL = "/"
-#baseURL = "http://jotternotes.com/jottr.org/"
-#baseURL = "http://jottr.org/"
+## baseURL = "/"
+baseURL = "http://www.jottr.org/"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "JottR"
