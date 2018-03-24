@@ -132,7 +132,7 @@ url = "/archives"
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "Hugo tranquilpeak theme demo"
+  description = "JottR - some jotter on R"
 
   # Customization
   # Define the behavior of the sidebar
