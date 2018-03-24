@@ -22,7 +22,7 @@ defaultContentLanguage = "en-us"
 title = "JottR"
 theme = "hugo-tranquilpeak-theme"
 # disqusShortname = "hugo-tranquilpeak-theme"
-#FIXME: googleAnalytics = "UA-37469319-1"
+googleAnalytics = "UA-37469319-1"
 paginate = 20
 canonifyurls = true
 ## Recommended by blogdown:
