@@ -9,8 +9,8 @@ tags:
 - R
 - package
 - startup
-- .Rprofile
-- .Renviron
+- Rprofile
+- Renviron
 - configuration
 - environment variables
 - options
