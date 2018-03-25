@@ -48,7 +48,7 @@ plot_julia <- function(img, col = topo.colors(16)) {
 }
 ```
   
-For the purpose of illustrating how to calculate different Julia sets in parallel, I will use the same `(centre, L) = (0 + 0i, 3.5)` region as above with the following ten complex coeffients (from [Julia set]):
+For the purpose of illustrating how to calculate different Julia sets in parallel, I will use the same `(centre, L) = (0 + 0i, 3.5)` region as above with the following ten complex coefficients (from [Julia set]):
 ```r
 Cs <- c(
   a = -0.618,
