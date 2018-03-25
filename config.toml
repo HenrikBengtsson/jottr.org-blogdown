@@ -16,7 +16,7 @@
 # * https://statr.me/
 # * https://github.com/yixuan/hugo-blog-en
 ## baseURL = "/"
-baseURL = "http://www.jottr.org/"
+baseURL = "https://www.jottr.org/"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "JottR"
