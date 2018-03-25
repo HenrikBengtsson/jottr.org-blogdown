@@ -149,6 +149,7 @@ sets <- Cs %>%
         values
 ```
 
+_Comment:_ This latter approach will not perform load balancing ("scheduling") across backend workers; that's a feature that ideally would be taken care of by purrr itself.  However, I have some ideas for future versions of future (pun...) that may achieve this without having to modify the purrr package.
 
 
 # Got compute?
