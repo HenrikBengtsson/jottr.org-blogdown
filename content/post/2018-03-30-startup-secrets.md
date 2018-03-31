@@ -16,7 +16,7 @@ tags:
  - secrets
 ---
 
-New release: **[startup]** 0.10.0 is on CRAN.
+New release: **[startup]** 0.10.0 is now on CRAN.
 
 If your R startup files (`.Renviron` and `.Rprofile`) get long and windy, or if you want to make parts of them public and other parts private, then you can use the **[startup]** package to split them up in separate files and directories under `.Renviron.d/` and `.Rprofile.d/`.  For instance, the `.Rprofile.d/repos.R` file can be solely dedicated to setting in the `repos` option, which specifies from which web servers R packages are installed from. This makes it easy to find and easy to share with others (e.g. on GitHub).  To make use of **startup**, install the package and then call `startup::install()` once.  For an introduction, see [Start Me Up].
 
