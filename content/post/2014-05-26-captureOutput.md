@@ -1,6 +1,6 @@
 ---
 title: "Performance: captureOutput() is Much Faster than capture.output()"
-slug: "trick-fast-rm"
+slug: "captureOutput"
 date: 2014-05-26
 aliases: [/2014/05/captureOutput.html]
 categories:
