@@ -227,6 +227,7 @@ _Happy futuring!_
 
 
 ## Links
+
 * future - _Unified Parallel and Distributed Processing in R for Everyone_
   - CRAN page: https://cran.r-project.org/package=future
   - GitHub page: https://github.com/HenrikBengtsson/future
@@ -247,7 +248,6 @@ _Happy futuring!_
 ## See also
 
 * [future.apply - Parallelize Any Base R Apply Function](/2018/06/23/future.apply_1.0.0/), 2018-06-23
-
 * [Delayed Future(Slides from eRum 2018)](/2018/06/18/future-erum2018-slides/), 2018-06-19
 * [future 1.8.0: Preparing for a Shiny Future](/2018/04/12/future-results/), 2018-04-12
 * [The Many-Faced Future](/2017/06/05/many-faced-future/), 2017-06-05
