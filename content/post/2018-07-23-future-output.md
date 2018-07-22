@@ -173,8 +173,8 @@ Because the output is also relayed when there is an error, e.g.
 ```r
 > x <- "42"
 > f <- future({
-+ str(list(x = x))
-+ log(x)
++   str(list(x = x))
++   log(x)
 + })
 > value(f)
 List of 1
