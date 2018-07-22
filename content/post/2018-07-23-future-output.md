@@ -15,7 +15,7 @@ tags:
  - parallel processing
  - compute clusters
  - HPC
- 
+
 ---
 
 ![Illustration of communication by mechanical semaphore in 1800s France. Lines of towers supporting semaphore masts were built within visual distance of each other. The arms of the semaphore were moved to different positions, to spell out text messages. The operators in the next tower would read the message and pass it on. Invented by Claude Chappee in 1792, semaphore was a popular communication technology in the early 19th century until the telegraph replaced it. (source: wikimedia.org)](/post/Signaling_by_Napoleonic_semaphore_line.jpg)
@@ -226,6 +226,17 @@ _Happy futuring!_
 
 
 
+## See also
+
+* [future.apply - Parallelize Any Base R Apply Function](/2018/06/23/future.apply_1.0.0/), 2018-06-23
+* [Delayed Future(Slides from eRum 2018)](/2018/06/18/future-erum2018-slides/), 2018-06-19
+* [future 1.8.0: Preparing for a Shiny Future](/2018/04/12/future-results/), 2018-04-12
+* [The Many-Faced Future](/2017/06/05/many-faced-future/), 2017-06-05
+* [future 1.3.0 Reproducible RNGs, future&#95;lapply() and More](/2017/02/19/future-rng/), 2017-02-19
+* [High-Performance Compute in R Using Futures](/2016/10/22/future-hpc/), 2016-10-22
+* [Remote Processing Using Futures](/2016/10/11/future-remotes/), 2016-10-11
+
+
 ## Links
 
 * future - _Unified Parallel and Distributed Processing in R for Everyone_
@@ -243,17 +254,6 @@ _Happy futuring!_
 * future.callr - _A Future API for Parallel Processing using 'callr'_
   - CRAN page: https://cran.r-project.org/package=future.callr
   - GitHub page: https://github.com/HenrikBengtsson/future.callr
-
-
-## See also
-
-* [future.apply - Parallelize Any Base R Apply Function](/2018/06/23/future.apply_1.0.0/), 2018-06-23
-* [Delayed Future(Slides from eRum 2018)](/2018/06/18/future-erum2018-slides/), 2018-06-19
-* [future 1.8.0: Preparing for a Shiny Future](/2018/04/12/future-results/), 2018-04-12
-* [The Many-Faced Future](/2017/06/05/many-faced-future/), 2017-06-05
-* [future 1.3.0 Reproducible RNGs, future&#95;lapply() and More](/2017/02/19/future-rng/), 2017-02-19
-* [High-Performance Compute in R Using Futures](/2016/10/22/future-hpc/), 2016-10-22
-* [Remote Processing Using Futures](/2016/10/11/future-remotes/), 2016-10-11
 
 
 [future]: https://cran.r-project.org/package=future
