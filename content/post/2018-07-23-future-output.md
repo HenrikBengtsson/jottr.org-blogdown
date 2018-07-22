@@ -1,7 +1,7 @@
 ---
 title: "future 1.9.0 - Output from The Future"
 slug: "output-from-the-future"
-date: 2018-07-23
+date: 2018-07-22
 categories:
  - R
 tags:
