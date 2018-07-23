@@ -18,12 +18,6 @@ tags:
 
 ---
 
-![Illustration of communication by mechanical semaphore in 1800s France. Lines of towers supporting semaphore masts were built within visual distance of each other. The arms of the semaphore were moved to different positions, to spell out text messages. The operators in the next tower would read the message and pass it on. Invented by Claude Chappee in 1792, semaphore was a popular communication technology in the early 19th century until the telegraph replaced it. (source: wikimedia.org)](/post/Signaling_by_Napoleonic_semaphore_line.jpg)
-_Relaying standard output from far away_
-
-<!--
-Source: https://commons.wikimedia.org/wiki/File:Signaling_by_Napoleonic_semaphore_line.jpg
--->
 
 [future] 1.9.0 - _Unified Parallel and Distributed Processing in R for Everyone_ - is on CRAN.  This is a milestone release:
 
@@ -32,6 +26,13 @@ regardless of where the futures are processed!**
 
 
 _Disclaimer:_ A future's output is relayed only after it is resolved and when its value is retrieved by the master R process.  In other words, the output is not streamed back in a "live" fashion as it is produced.  Also, it is only the standard output that is relayed.  See below, for why the standard error cannot be relayed.
+
+
+![Illustration of communication by mechanical semaphore in 1800s France. Lines of towers supporting semaphore masts were built within visual distance of each other. The arms of the semaphore were moved to different positions, to spell out text messages. The operators in the next tower would read the message and pass it on. Invented by Claude Chappee in 1792, semaphore was a popular communication technology in the early 19th century until the telegraph replaced it. (source: wikimedia.org)](/post/Signaling_by_Napoleonic_semaphore_line.jpg)
+_Relaying standard output from far away_
+<!--
+Source: https://commons.wikimedia.org/wiki/File:Signaling_by_Napoleonic_semaphore_line.jpg
+-->
 
 
 ## Examples
@@ -45,7 +46,7 @@ Assume we have access to three machines with R installed on our local network.  
 [1] 3
 ```
 
-With the above, future expressions will now be processed across those three (3) machines.  To see which machine a future ends up being resolved by, we can output the hostname, e.g.
+With the above, future expressions will now be processed across those three machines.  To see which machine a future ends up being resolved by, we can output the hostname, e.g.
 
 ```r
 > printf <- function(...) cat(sprintf(...))
@@ -115,7 +116,7 @@ PID: 484252
 ```
 
 
-## Higher-Level Future APIs
+## Higher-Level Future Frontends
 
 The core Future API, that is, the explicit `future()`-`value()` functions and the implicit future-assignment operator `%<-%` function, provides the foundation for all of the future ecosystem.  Because of this, _relaying of output will work out of the box wherever futures are used_.  For example, when using **future.apply** we get:
 
