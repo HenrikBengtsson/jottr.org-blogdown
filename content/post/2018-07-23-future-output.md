@@ -28,11 +28,8 @@ regardless of where the futures are processed!**
 _Disclaimer:_ A future's output is relayed only after it is resolved and when its value is retrieved by the master R process.  In other words, the output is not streamed back in a "live" fashion as it is produced.  Also, it is only the standard output that is relayed.  See below, for why the standard error cannot be relayed.
 
 
-![Illustration of communication by mechanical semaphore in 1800s France. Lines of towers supporting semaphore masts were built within visual distance of each other. The arms of the semaphore were moved to different positions, to spell out text messages. The operators in the next tower would read the message and pass it on. Invented by Claude Chappee in 1792, semaphore was a popular communication technology in the early 19th century until the telegraph replaced it. (source: wikimedia.org)](/post/Signaling_by_Napoleonic_semaphore_line.jpg)
+![Illustration of communication by mechanical semaphore in 1800s France. Lines of towers supporting semaphore masts were built within visual distance of each other. The arms of the semaphore were moved to different positions, to spell out text messages. The operators in the next tower would read the message and pass it on. Invented by Claude Chappee in 1792, semaphore was a popular communication technology in the early 19th century until the telegraph replaced it. (source: wikipedia.org)](/post/Signaling_by_Napoleonic_semaphore_line.jpg)
 _Relaying standard output from far away_
-<!--
-Source: https://commons.wikimedia.org/wiki/File:Signaling_by_Napoleonic_semaphore_line.jpg
--->
 
 
 ## Examples
@@ -228,6 +225,8 @@ _Happy futuring!_
 
 
 ## See also
+
+* About [Semaphore Telgraphs](https://www.wikipedia.org/wiki/Semaphore_line), Wikipedia
 
 * [future.apply - Parallelize Any Base R Apply Function](/2018/06/23/future.apply_1.0.0/), 2018-06-23
 * [Delayed Future(Slides from eRum 2018)](/2018/06/18/future-erum2018-slides/), 2018-06-19
