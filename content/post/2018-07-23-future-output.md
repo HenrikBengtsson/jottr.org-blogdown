@@ -226,7 +226,7 @@ _Happy futuring!_
 
 ## See also
 
-* About [Semaphore Telgraphs](https://www.wikipedia.org/wiki/Semaphore_line), Wikipedia
+* About [Semaphore Telegraphs](https://www.wikipedia.org/wiki/Semaphore_line), Wikipedia
 
 * [future.apply - Parallelize Any Base R Apply Function](/2018/06/23/future.apply_1.0.0/), 2018-06-23
 * [Delayed Future(Slides from eRum 2018)](/2018/06/18/future-erum2018-slides/), 2018-06-19
