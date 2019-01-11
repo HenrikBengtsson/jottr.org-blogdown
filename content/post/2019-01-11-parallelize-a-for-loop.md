@@ -345,9 +345,9 @@ for (ii in seq_along(X)) {
 }
 y <- values(y)
 ```
-This is just one example.  I've run into several other use cases in my large-scale genomics research, where I found it extremely useful to be able to perform the beginning of an iteration sequentially in the main processes before passing on the remaining part to be processes in parallel by the workers.
+This is just one example.  I've run into several other use cases in my large-scale genomics research, where I found it extremely useful to be able to perform the beginning of an iteration sequentially in the main processes before passing on the remaining part to be processed in parallel by the workers.
 
-(*) I do have some ideas on how to get the above code snippet to do automatic workload balancing "under the hood", but that it quite far into the future of the future framework.
+(*) I do have some ideas on how to get the above code snippet to do automatic workload balancing "under the hood", but that is quite far into the future of the future framework.
 
 
 
