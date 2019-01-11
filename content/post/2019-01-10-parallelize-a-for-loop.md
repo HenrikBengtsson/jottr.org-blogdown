@@ -68,7 +68,7 @@ for (ii in seq_along(X)) {
   })
 }
 ```
-By making these, apparently, small adjustments, we lower the risk for missing some critical side effects that may be used in some for-loops.  If we do, then the for-loop is likely to give the wrong results.
+By making these, apparently, small adjustments, we lower the risk for missing some critical side effects that may be used in some for-loops.  If those exists and we miss to adjust for them, then the for-loop is likely to give the wrong results.
 
 If this syntax is unfamiliar to you, run it first to convince yourself that it works.  How does it work?  The code inside `local()` will be evaluated in a local environment and it is only its last value (here `tmp`) that will returned.  It is also neat that `x`, `tmp`, and any other created variables, will _not_ clutter up the global environment.  Instead, they will vanish after each iteration just like local variables used inside functions.  Retry the above after `rm(x, tmp)` to see that this is really the case.
 
