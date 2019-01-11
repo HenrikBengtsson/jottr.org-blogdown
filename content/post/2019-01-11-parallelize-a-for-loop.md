@@ -1,6 +1,6 @@
 ---
 title: "Parallelize a For-Loop by Rewriting it as an Lapply Call"
-date: 2019-01-10 23:59:59 -0700
+date: 2019-01-11 23:59:59 -0700
 categories:
  - R
 tags:
@@ -114,7 +114,7 @@ and we're done.
 
 ## foreach::foreach() %dopar% { ... }
 
-If we want to the **[foreach]** framework, we can do:
+If we wish to use the **[foreach]** framework, we can do:
 
 ```r
 library(doFuture)
@@ -128,7 +128,7 @@ y <- foreach(x = X) %dopar% {
   tmp
 }
 ```
-Here I choose the **[doFuture]** adaptor because it provides us with full access to the future framework and all of its parallel backends (controlled via `plan()`).
+Here I choose the **[doFuture]** adaptor because it provides us with access to the future framework and the full range of parallel backends that comes with it (controlled via `plan()`).
 
 If there is only one thing you should remember from this post, it is the following:
 
@@ -197,8 +197,8 @@ which we in turn can parallelize with one of the above approaches.
 
 The only difference from the original for-loop is that the 'y' and 'z' results are no longer in two separate lists.  This makes it a bit harder to get a hold of the two elements.  In some cases, then downstream code can work with the new `yz` format as is but if not, we can always do:
 ```r
-x <- lapply(yz, function(z) z$x)
-y <- lapply(yz, function(z) z$y)
+y <- lapply(yz, function(t) t$y)
+z <- lapply(yz, function(t) t$z)
 rm(yz)
 ```
 
@@ -262,7 +262,7 @@ for (ii in 2:length(X)) {
   x <- X[[ii]]
   tmp <- sqrt(x)
   y[[ii]] <- y[[ii - 1]] + tmp
-})
+}
 ```
 
 does _not_ use an embarrassingly parallel for-loop.  This code cannot be rewritten as an lapply call and therefore it cannot be parallelized.
