@@ -21,7 +21,7 @@ A commonly asked question in the R community is:
 
 > How can I parallelize the following for-loop?
 
-The answer always involves rewriting the `for (...) { ... }` loop into something that looks like a `y <- lapply(...)` call.  If you can achieve that, you can parallelize it via for instance `y <- future.apply::future_lapply(...)` or `y <- foreach::foreach() %dopar% { ... }`.
+The answer basically always involves rewriting the `for (...) { ... }` loop into something that looks like a `y <- lapply(...)` call.  If you can achieve that, you can parallelize it via for instance `y <- future.apply::future_lapply(...)` or `y <- foreach::foreach() %dopar% { ... }`.
 
 For some for-loops it is straightforward to rewrite the code to make use of `lapply()` instead, whereas in other cases it can be a bit more complicated, especially if the for-loop updates multiple variables in each iteration.  However, as long as the algorithm behind the for-loop is _[embarrassingly parallel]_, it can be done.  Whether it should be parallelized in the first place, or it's worth parallelizing it, is a whole other discussion.
 
