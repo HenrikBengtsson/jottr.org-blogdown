@@ -21,16 +21,16 @@ tags:
 
 New versions of the following future backends are available on CRAN:
 
-* [future.callr] - parallelization via [callr], i.e. on the local machine
-* [future.batchtools] - parallelization via [batchtools], i.e. on a compute cluster with job schedulers (SLURM, SGE, Torque/PBS, etc.) but also on the local machine
-* [future.BatchJobs] - (maintained for legacy reasons) parallelization via [BatchJobs], which is the predecessor of batchtools
+* **[future.callr]** - parallelization via **[callr]**, i.e. on the local machine
+* **[future.batchtools]** - parallelization via **[batchtools]**, i.e. on a compute cluster with job schedulers (SLURM, SGE, Torque/PBS, etc.) but also on the local machine
+* **[future.BatchJobs]** - (maintained for legacy reasons) parallelization via **[BatchJobs]**, which is the predecessor of batchtools
 
-These releases fix a few small bugs and inconsistencies that were identified with help of the [future.tests] framework that is being developed with [support from the R Consortium](https://www.r-consortium.org/projects/awarded-projects).
+These releases fix a few small bugs and inconsistencies that were identified with help of the **[future.tests]** framework that is being developed with [support from the R Consortium](https://www.r-consortium.org/projects/awarded-projects).
 
 
 I also released a new version of:
 
-* [doFuture] - use _any_ future backend for `foreach()` parallelization
+* **[doFuture]** - use _any_ future backend for `foreach()` parallelization
 
 which comes with a few improvements and bug fixes.
 
@@ -67,15 +67,15 @@ y <- future_lapply(X, FUN = my_slow_function)
 
 ## The future is ... why?
 
-The [future] package provides a simple, cross-platform, and lightweight API for parallel processing in R.  At its core, there are three core building blocks for doing parallel processing - `future()`, `resolved()` and `value()`- which are used for creating the asynchronous evaluation of an R expression, querying whether it's done or not, and collecting the results.  With these fundamental building blocks, a large variety of parallel tasks can be performed, either by using these functions directly or indirectly via more feature rich higher-level parallelization APIs such as [future.apply], [foreach], [BiocParallel] or [plyr] with [doFuture], and [furrr].  In all cases, how and where future R expressions are evaluated, that is, how and where the parallelization is performed, depends solely on which _future backend_ is currently used, which is controlled by the `plan()` function.
+The **[future]** package provides a simple, cross-platform, and lightweight API for parallel processing in R.  At its core, there are three core building blocks for doing parallel processing - `future()`, `resolved()` and `value()`- which are used for creating the asynchronous evaluation of an R expression, querying whether it's done or not, and collecting the results.  With these fundamental building blocks, a large variety of parallel tasks can be performed, either by using these functions directly or indirectly via more feature rich higher-level parallelization APIs such as **[future.apply]**, **[foreach]**, **[BiocParallel]** or **[plyr]** with **[doFuture]**, and **[furrr]**.  In all cases, how and where future R expressions are evaluated, that is, how and where the parallelization is performed, depends solely on which _future backend_ is currently used, which is controlled by the `plan()` function.
 
 One advantage of the Future API, whether it is used directly as is or via one of the higher-level APIs, is that it encapsulates the details on _how_ and _where_ the code is parallelized allowing the developer to instead focus on _what_ to parallelize.  Another advantage is that the end user will have control over which future backend to use.  For instance, one user may choose to run an analysis in parallel on their notebook or in the cloud, whereas another may want to run it via a job scheduler in a high-performance compute (HPC) environment.
 
 
 ## What’s next?
 
-I've spent a fair bit of time working on [future.tests], which is a single framework for testing future backends.  It will allow developers of future backends to validate that they fully conform to the Future API.  This will lower the barrier for creating a new backend (e.g. [future.clustermq] on top of [clustermq] or [one on top Redis](https://github.com/HenrikBengtsson/future/issues/151)) and it will add trust for existing ones such that end users can reliably switch between backends without having to worry about the results being different or even corrupted.
-So, backed by [future.tests], I feel more comfortable attacking some of the feature requests - and there are [quite a few of them](https://github.com/HenrikBengtsson/future/issues?q=is%3Aissue+is%3Aopen+label%3A%22feature+request%22).  Indeed, I've already implemented one of them.  More news coming soon ...
+I've spent a fair bit of time working on **[future.tests]**, which is a single framework for testing future backends.  It will allow developers of future backends to validate that they fully conform to the Future API.  This will lower the barrier for creating a new backend (e.g. [future.clustermq] on top of **[clustermq]** or [one on top Redis](https://github.com/HenrikBengtsson/future/issues/151)) and it will add trust for existing ones such that end users can reliably switch between backends without having to worry about the results being different or even corrupted.
+So, backed by **[future.tests]**, I feel more comfortable attacking some of the feature requests - and there are [quite a few of them](https://github.com/HenrikBengtsson/future/issues?q=is%3Aissue+is%3Aopen+label%3A%22feature+request%22).  Indeed, I've already implemented one of them.  More news coming soon ...
 
 
 _Happy futuring!_

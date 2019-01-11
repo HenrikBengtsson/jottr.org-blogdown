@@ -19,7 +19,7 @@ tags:
 ---
 
 
-[future] 1.9.0 - _Unified Parallel and Distributed Processing in R for Everyone_ - is on CRAN.  This is a milestone release:
+**[future]** 1.9.0 - _Unified Parallel and Distributed Processing in R for Everyone_ - is on CRAN.  This is a milestone release:
 
 **Standard output is now relayed from futures back to the master R session -
 regardless of where the futures are processed!**
@@ -161,7 +161,7 @@ Hostname: n3 (x = 5)
 
 Unfortunately, it is _not possible_ to relay output sent to the standard error (stderr), that is, output by `message()`, `cat(..., file = stderr())`, and so on, is not taken care of.  This is due to a [limitation in R](https://github.com/HenrikBengtsson/Wishlist-for-R/issues/55), preventing us from capturing stderr in a reliable way.  The gist of the problem is that, contrary to stdout ("output"), there can only be a single stderr ("message") sink active in R at any time.  What really is the show stopper is that if we allocate such a message sink, it will be stolen from us the moment other code/functions request the message sink.  In other words, message sinks cannot be used reliably in R unless one fully controls the whole software stack.  As long as this is the case, it is not possible to collect and relay stderr in a consistent fashion across _all_ future backends (*).  But, of course, I'll keep on trying to find a solution to this problem.  If anyone has a suggestion for a workaround or a patch to R, please let me know.
 
-(*) The [callr] package captures stdout and stderr in a consistent manner, so for the [future.callr] backend, we could indeed already now relay stderr.  We could probably also find a solution for [future.batchtools] backends, which targets HPC job schedulers by utilizing the [batchtools] package.  However, if code becomes dependent on using specific future backends, it will limit the end users' options - we want to avoid that as far as ever possible.  Having said this, it is possible that we'll start out supporting stderr by making it an [optional feature of the Future API](https://github.com/HenrikBengtsson/future/issues/172).
+(*) The **[callr]** package captures stdout and stderr in a consistent manner, so for the **[future.callr]** backend, we could indeed already now relay stderr.  We could probably also find a solution for **[future.batchtools]** backends, which targets HPC job schedulers by utilizing the **[batchtools]** package.  However, if code becomes dependent on using specific future backends, it will limit the end users' options - we want to avoid that as far as ever possible.  Having said this, it is possible that we'll start out supporting stderr by making it an [optional feature of the Future API](https://github.com/HenrikBengtsson/future/issues/172).
 
 
 ## Poor Man's debugging
@@ -213,7 +213,7 @@ From the error message, we get that there was an "non-numeric argument" (element
 
 ## What's next?
 
-Progress bar information is one of several frequently [requested features](https://github.com/HenrikBengtsson/future/labels/feature%20request) in the future framework.  I hope to attack the problem of progress bars and progress messages in higher-level future frontends such as [future.apply].  Ideally, this can be done in a uniform and generic fashion to meet all needs.  A possible implementation that has been discussed, is to provide a set of basic hook functions (e.g. on-start, on-resolved, on-value) that any ProgressBar API (e.g. [jobstatus]) can build upon.  This could help avoid tie-in to a particular progress-bar implementation.
+Progress bar information is one of several frequently [requested features](https://github.com/HenrikBengtsson/future/labels/feature%20request) in the future framework.  I hope to attack the problem of progress bars and progress messages in higher-level future frontends such as **[future.apply]**.  Ideally, this can be done in a uniform and generic fashion to meet all needs.  A possible implementation that has been discussed, is to provide a set of basic hook functions (e.g. on-start, on-resolved, on-value) that any ProgressBar API (e.g. **[jobstatus]**) can build upon.  This could help avoid tie-in to a particular progress-bar implementation.
 
 Another feature I'd like to get going is (optional) [benchmarking of processing time and memory consumption](https://github.com/HenrikBengtsson/future/issues/59).  This type of information will help optimize parallel and distributed processing by identifying and understand the various sources of overhead involved in parallelizing a particular piece of code in a particular compute environment.  This information will also help any efforts trying to automate load balancing.  It may even be used for progress bars that try to estimate the remaining processing time ("ETA").
 
