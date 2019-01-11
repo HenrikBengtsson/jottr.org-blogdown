@@ -34,6 +34,8 @@ _Run your loops in parallel._
 
 # Example 1: A well-behaving for-loop
 
+I will use very simple function calls throughout the examples, e.g. `sqrt(x)`.  For these code snippets to make sense, let us pretend that those functions take a long time to finish and by parallelizing multiple such calls we will shorten the overall processing time.
+
 First, consider the following example:
 
 ```r
@@ -70,7 +72,7 @@ for (ii in seq_along(X)) {
 ```
 By making these, apparently, small adjustments, we lower the risk for missing some critical side effects that may be used in some for-loops.  If those exists and we miss to adjust for them, then the for-loop is likely to give the wrong results.
 
-If this syntax is unfamiliar to you, run it first to convince yourself that it works.  How does it work?  The code inside `local()` will be evaluated in a local environment and it is only its last value (here `tmp`) that will returned.  It is also neat that `x`, `tmp`, and any other created variables, will _not_ clutter up the global environment.  Instead, they will vanish after each iteration just like local variables used inside functions.  Retry the above after `rm(x, tmp)` to see that this is really the case.
+If this syntax is unfamiliar to you, run it first to convince yourself that it works.  How does it work?  The code inside `local()` will be evaluated in a local environment and it is only its last value (here `tmp`) that will be returned.  It is also neat that `x`, `tmp`, and any other created variables, will _not_ clutter up the global environment.  Instead, they will vanish after each iteration just like local variables used inside functions.  Retry the above after `rm(x, tmp)` to see that this is really the case.
 
 Now we're in a really good position to turn the for-loop into an lapply call.  To share my train of thought, I'll start by showing how to do it in a way that best resembles the latter for-loop;
 ```r
@@ -90,7 +92,9 @@ y <- lapply(X, function(x) {
 })
 ```
 
-If we get this far and have confirmed that we get the expected results, then we're home.  From here, there are few ways to parallelize the lapply call.  The **parallel** package provides the commonly known `mclapply()` and `parLapply()` functions, which are found in many examples and inside several R packages.  As the author of the **[future]** package, I claim that your life as a developer will be a bit easier if you instead use the future framework. It will also bring more power and options to the end user.  Below are a few options for parallelization.
+If we get this far and have **confirmed that we get the expected results**, then we're home.
+
+From here, there are few ways to parallelize the lapply call.  The **parallel** package provides the commonly known `mclapply()` and `parLapply()` functions, which are found in many examples and inside several R packages.  As the author of the **[future]** package, I claim that your life as a developer will be a bit easier if you instead use the future framework. It will also bring more power and options to the end user.  Below are a few options for parallelization.
 
 
 ## future.apply::future_lapply()
@@ -149,7 +153,7 @@ No, it isn't.
 
 ## Additional parallelization options
 
-There are several more options available, which are conceptually very similar to the above lapply-like approaches, e.g. `y <- furrr::future_map(X, ...)`, `y <- plyr::llply(X, ..., .parallel = TRUE)` or `y <- BiocParallel::bplapply(X, ..., BPPARAM = DoparParam())`.  For the latter two, we can use `doFuture::registerDoFuture()` to parallelize via one of the many parallel backends available to futures.  See also my blog post [The Many-Faced Future].
+There are several more options available, which are conceptually very similar to the above lapply-like approaches, e.g. `y <- furrr::future_map(X, ...)`, `y <- plyr::llply(X, ..., .parallel = TRUE)` or `y <- BiocParallel::bplapply(X, ..., BPPARAM = DoparParam())`.  For also the latter two to parallelize via one of the many future backends, we need to set `doFuture::registerDoFuture()`.  See also my blog post [The Many-Faced Future].
 
 
 
@@ -321,7 +325,7 @@ for (ii in seq_along(X)) {
 y <- values(y)  ## collect values
 ```
 
-Note that this approach does _not_ perform load balancing*.  That is, contrary to the above mentioned lapply-like options, it will not chunk up the elements in `X` into equally-sized portions for each parallel workers to process.  Instead, it will call each worker multiple times, which can bring some significant overhead, especially if there are many elements to iterate over.
+Note that this approach does _not_ perform load balancing*.  That is, contrary to the above mentioned lapply-like options, it will not chunk up the elements in `X` into equally-sized portions for each parallel worker to process.  Instead, it will call each worker multiple times, which can bring some significant overhead, especially if there are many elements to iterate over.
 
 However, one neat feature of this bare-bones approach is that we have full control of the iteration.  For instance, we can initiate each iteration using a bit of sequential code before we use parallel code.  This can be particularly useful for subsetting large objects to avoid passing them to each worker, which otherwise can be costly.  For example, we can rewrite the above as:
 
