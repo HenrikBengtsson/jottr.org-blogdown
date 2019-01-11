@@ -1,6 +1,6 @@
 ---
 title: "Parallelize a For-Loop by Rewriting it as an Lapply Call"
-date: 2019-01-11 23:59:59 -0700
+date: 2019-01-10 23:59:59 -0700
 categories:
  - R
 tags:
