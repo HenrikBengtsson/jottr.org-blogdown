@@ -45,7 +45,7 @@ for (ii in seq_along(X)) {
   y[[ii]] <- tmp
 }
 ```
-When run, this will give in the following result:
+When run, this will give us the following result:
 ```r
 > str(y)
 List of 5
