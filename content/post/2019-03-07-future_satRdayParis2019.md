@@ -1,5 +1,5 @@
 ---
-title: "satRday Paris 2019 slides on Futures"
+title: "SatRday Paris 2019 Slides on Futures"
 slug: "future-satRdayParis2019-slides"
 date: 2019-03-07
 categories:
