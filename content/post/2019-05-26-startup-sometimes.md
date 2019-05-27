@@ -1,7 +1,7 @@
 ---
 title: "startup - run R startup files once per hour, day, week, ..."
 slug: "startup-sometimes"
-date: 2019-05-26 21:00:00 -0800
+date: 2019-05-26 21:00:00 -0700
 categories:
  - R
 tags:
