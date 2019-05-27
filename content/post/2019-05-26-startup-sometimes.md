@@ -11,9 +11,7 @@ tags:
  - Rprofile
  - Renviron
  - configuration
- - environment variables
- - options
- - secrets
+ - anacron
 ---
 
 New release: **[startup]** 0.12.0 is now on CRAN.  This version introduces support for processing some of the R startup files with a certain frequency, e.g. once per day, once per week, or once per month.  See below for two examples.
