@@ -38,7 +38,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [author]
   name = "Henrik Bengtsson"
-  bio = "MSc CS | PhD Math Stat | Associate Professor | R"
+  bio = "MSc CS | PhD Math Stat | Associate Professor | R Foundation | R Consortium"
   job = "Associate Professor"
   location = ""
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
