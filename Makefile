@@ -1,6 +1,6 @@
-WEBSITE=http://www.jottr.org
+WEBSITE=https://www.jottr.org
 
-serve:
+start:
 	Rscript -e "blogdown::serve_site()" &
 
 check_links:
