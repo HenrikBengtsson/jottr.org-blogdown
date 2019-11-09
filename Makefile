@@ -1,7 +1,10 @@
 WEBSITE=https://www.jottr.org
 
-start:
-	Rscript -e "blogdown::serve_site()" &
+start: hugo_version
+	Rscript -e "cat(paste0('\nBlogdown PID: ',Sys.getpid(),'\n'))" -e "blogdown::serve_site()" &
+
+hugo_version:
+	@Rscript -e "cat(paste0(blogdown::hugo_version(),'\n'))"
 
 check_links:
 	wget --spider -o wget.log -e robots=off -w 1 -r -p $(WEBSITE)/index.html

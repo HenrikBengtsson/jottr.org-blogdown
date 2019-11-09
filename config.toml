@@ -131,7 +131,7 @@ url = "/archives"
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "JottR - some jotter on R"
+  description = "JottR - Some Jotter on R"
 
   # Customization
   # Define the behavior of the sidebar
