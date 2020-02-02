@@ -1,7 +1,7 @@
 ---
 title: "rstudio::conf 2020 Slides on Futures"
 slug: "future-rstudioconf2020-slides"
-date: 2020-02-12 18:00:00 -0800
+date: 2020-02-01 19:30:00 -0800
 categories:
  - R
 tags:
