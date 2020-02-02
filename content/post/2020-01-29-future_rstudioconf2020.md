@@ -48,7 +48,6 @@ _Happy futuring!_
 
 * rstudio::conf 2020:
   - Conference site: https://rstudio.com/conference/
-  - Conference material: TBA
 * Packages essential to the understanding of this talk (in order of appearance):
   * **future** package: [CRAN](https://cran.r-project.org/package=future), [GitHub](https://github.com/HenrikBengtsson/future)
   * **future.apply** package: [CRAN](https://cran.r-project.org/package=future.apply), [GitHub](https://github.com/HenrikBengtsson/future.apply)
