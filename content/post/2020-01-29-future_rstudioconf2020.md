@@ -34,6 +34,7 @@ I presented _Future: Simple Async, Parallel & Distributed Processing in R Why an
 
 * [HTML](https://docs.google.com/presentation/d/1Wn5S91UGIOrc4IyXoV074ij5vGF8I0Km0tCfintyIa4/present?includes_info_params=1&eisi=CM2mhIXwsecCFQyuJgodBQAJ8A#slide=id.p) (incremental Google Slides; requires online access)
 * [PDF](https://www.jottr.org/presentations/rstudioconf2020/BengtssonH_20200129-future-rstudioconf2020.pdf) (flat slides)
+* [Video](https://resources.rstudio.com/rstudio-conf-2020/future-simple-async-parallel-amp-distributed-processing-in-r-whats-next-henrik-bengtsson) with closed captions (official rstudio::conf recording)
 
 First of all, a big thank you goes out to Dan LaBar (<a href="https://twitter.com/embiggenData">@embiggenData</a>) for proposing and contributing the original design of the future hex sticker. All credits to Dan. (You can blame me for the tweaked background.)
 
