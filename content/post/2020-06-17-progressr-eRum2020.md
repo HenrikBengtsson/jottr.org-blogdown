@@ -37,7 +37,7 @@ I am grateful for everyone involved who made e-Rum 2020 possible.  I cannot imag
 
 As a speaker, I found it a bit of a challenge. It was my first presentation at an all online conference, so I wasn't sure what to expect and how it would go. As others said, it is indeed a bit unusual to present to an audience you know is there but that you cannot see or interact with during the talk. I gave my presentation a bit before seven o'clock in the morning my time, and halfway through, my mind tried to convince me that it would be ok to get up and pour myself another cup of coffee - hehe - I certainly did not expect that one.
 
-Now, let's make some progress to this world!
+Now, let's make some progress in this world!
 
 \- Henrik
 
