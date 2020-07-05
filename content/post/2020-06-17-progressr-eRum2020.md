@@ -1,7 +1,7 @@
 ---
 title: "e-Rum 2020 Slides on Progressr"
 slug: "progressr-erum2020-slides"
-date: 2020-07-04 17:30:00 -0800
+date: 2020-07-04 17:30:00 -0700
 categories:
  - R
 tags:
