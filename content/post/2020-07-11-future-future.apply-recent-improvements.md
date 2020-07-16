@@ -49,7 +49,7 @@ There have also been updates to **[doFuture]** and **[future.batchtools]**.  Ple
 
 ## What's next?
 
-I'm working on cleaning up and harmonization the Future API even further.  This is necessary so I can add some powerful features later on.  One example of this cleanup is making sure that all types of futures are resolved in a local environment, which means that the `local` argument can be deprecated and eventually removed.  Another example is to deprecate argument `persistent` for cluster futures, which is an "outlier" and remnant from the past.  I'm aware that some of you use `plan(cluster, persistent=TRUE)`, which, as far as I understand, is because you need to keep persistent variables around throughout the lifetime of the workers.  I've got a prototype of "sticky globals" that solves this problem differently, without the need for `persistent=FALSE`.  I'll try my best to make sure everyone's needs are met.
+I'm working on cleaning up and harmonization the Future API even further.  This is necessary so I can add some powerful features later on.  One example of this cleanup is making sure that all types of futures are resolved in a local environment, which means that the `local` argument can be deprecated and eventually removed.  Another example is to deprecate argument `persistent` for cluster futures, which is an "outlier" and remnant from the past.  I'm aware that some of you use `plan(cluster, persistent=TRUE)`, which, as far as I understand, is because you need to keep persistent variables around throughout the lifetime of the workers.  I've got a prototype of "sticky globals" that solves this problem differently, without the need for `persistent=FALSE`.  I'll try my best to make sure everyone's needs are met.  If you've got questions, feedback, or a special use case, please reach out on <https://github.com/HenrikBengtsson/future/issues/382>.
 
 I've also worked with the maintainers of **[foreach]** to harmonize the end-user and developer experience of **foreach** with that of the **future** framework.  For example, in `y <- foreach(...) %dopar% { ... }`, the `{ ... }` expression is now always evaluated in a local environment, just like futures.  This helps avoid some quite common beginner mistakes that happen when moving from sequential to parallel processing.  You can read about this change in the ['foreach 1.5.0 now available on CRAN'](https://blog.revolutionanalytics.com/2020/03/foreach-150-released.html) blog post by Hong Ooi.  There is also [a discussion](https://github.com/RevolutionAnalytics/foreach/issues/2) on updating how **foreach** identifies global variables and packages so that it works the same as in the **future** framework.
 
@@ -65,6 +65,10 @@ Happy futuring!
 * **future.callr** package: [CRAN](https://cran.r-project.org/package=future.callr), [GitHub](https://github.com/HenrikBengtsson/future.callr)
 * **future.tests** package: [CRAN](https://cran.r-project.org/package=future.tests), [GitHub](https://github.com/HenrikBengtsson/future.tests)
 * **progressr** package: [GitHub](https://github.com/HenrikBengtsson/progressr)
+
+
+UPDATE: Added link to GitHub issue to discuss deprecation of `local` and `persistent` /2020-07-16
+
 
 [future]: https://cran.r-project.org/package=future
 [future.apply]: https://cran.r-project.org/package=future.apply
