@@ -50,7 +50,7 @@ NOTE: .Random.seed changed
 > 
 ```
 
-It is not always obvious that a function generates random numbers internally.  For instance, the `rank()` function may or may not updated the RNG state depending on argument `ties` as illustrated in following example:
+It is not always obvious that a function generates random numbers internally.  For instance, the `rank()` function may or may not updated the RNG state depending on argument `ties` as illustrated in the following example:
 
 ```r
 > x <- c(1, 4, 3, 2)
@@ -73,7 +73,7 @@ NOTE: .Random.seed changed
 
 I have this RNG tracker enabled all the time to learn about functions that unexpectedly draw random numbers internally, which can be important to know when you run statistical analysis in parallel.
 
-As a bonus, if you have the **[crayon]** package installed, the note will be outputted with a style that is less intrusive.
+As a bonus, if you have the **[crayon]** package installed, the RNG tracker will output the note with a style that is less intrusive.
 
 (*) If you use the **[startup]** package, you can add it to a new file `~/.Rprofile.d/interactive=TRUE/rng_tracker.R`.  To learn more about the **startup** package, have a look at the [blog posts on **startup**](/tags/startup/).
 
