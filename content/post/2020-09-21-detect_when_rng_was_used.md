@@ -71,7 +71,7 @@ NOTE: .Random.seed changed
 > 
 ```
 
-I have this RNG check enabled all the time to learn about functions that unexpectedly draw random numbers internally, which can be important to know when you run statistical analysis in parallel.
+I have this RNG tracker enabled all the time to learn about functions that unexpectedly draw random numbers internally, which can be important to know when you run statistical analysis in parallel.
 
 As a bonus, if you have the **[crayon]** package installed, the note will be outputted with a style that is less intrusive.
 
