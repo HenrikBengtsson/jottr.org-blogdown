@@ -1,7 +1,7 @@
 ---
 title: "Detect When the Random Number Generator Was Used"
 slug: ""
-date: 2020-09-21 18:45:00 -0800
+date: 2020-09-21 18:45:00 -0700
 categories:
  - R
 tags:
