@@ -28,7 +28,7 @@ if (interactive()) {
     function(...) {
       curr <- .GlobalEnv$.Random.seed
       if (!identical(curr, last)) {
-        msg <- "NOTE: .Random.seed changed"
+        msg <- "TRACKER: .Random.seed changed"
         if (requireNamespace("crayon", quietly=TRUE)) msg <- crayon::blurred(msg)
         message(msg)
         last <<- curr
@@ -46,7 +46,7 @@ It works by checking whether or not the state of the random number generator (RN
 [1] 5050
 > runif(1)
 [1] 0.280737
-NOTE: .Random.seed changed
+TRACKER: .Random.seed changed
 > 
 ```
 
@@ -58,7 +58,7 @@ It is not always obvious that a function generates random numbers internally.  F
 [1] 1.0 2.5 2.5 4.0
 > rank(x, ties.method = "random")
 [1] 1 3 2 4
-NOTE: .Random.seed changed
+TRACKER: .Random.seed changed
 > 
 ```
 
@@ -66,7 +66,7 @@ For some functions, it may even depend on the input data whether or not random n
 
 ```r
 > y <- matrixStats::rowRanks(matrix(c(1,2,2), nrow=2, ncol=3), ties.method = "random")
-NOTE: .Random.seed changed
+TRACKER: .Random.seed changed
 > y <- matrixStats::rowRanks(matrix(c(1,2,3), nrow=2, ncol=3), ties.method = "random")
 > 
 ```
@@ -76,6 +76,9 @@ I have this RNG tracker enabled all the time to learn about functions that unexp
 As a bonus, if you have the **[crayon]** package installed, the RNG tracker will output the note with a style that is less intrusive.
 
 (*) If you use the **[startup]** package, you can add it to a new file `~/.Rprofile.d/interactive=TRUE/rng_tracker.R`.  To learn more about the **startup** package, have a look at the [blog posts on **startup**](/tags/startup/).
+
+
+EDIT 2020-09-23: Changed the message prefix from 'NOTE:' to 'TRACKER:'.
 
 
 [crayon]: https://cran.r-project.org/package=crayon
