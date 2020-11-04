@@ -13,3 +13,6 @@ check_links:
 spell/%: %
 	Rscript -e "spelling::spell_check_files('$<', ignore=readLines('WORDLIST'))"
 
+spell-202011: spell/content/post/2020-11-04-have-trust-in-the-future.md spell/content/post/2020-11-04-parallelly-and-future.md spell/content/post/2020-11-04-future_1.20.1.md
+
+spelling: spell-202011
