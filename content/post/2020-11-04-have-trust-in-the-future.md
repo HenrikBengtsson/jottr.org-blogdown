@@ -21,7 +21,7 @@ tags:
 ---
 
 <center>
-<img src="/post/you_dont_have_to_worry_about_your_future.jpg" alt="A fortune cookie that reads 'You do not have to worry about your future'" style="max-width: 60%"/>
+<img src="/post/you_dont_have_to_worry_about_your_future.jpg" alt="A fortune cookie that reads 'You do not have to worry about your future'" style="border: solid 1px; max-width: 70%"/>
 </center>
 
 Each time we use R to analyze data, we rely on the assumption that the R functions we use produce the correct results.  If we couldn't make this assumption, each of use would have to spend a lot of time validating every nitty detail.  Luckily, we don't have to do this.  As I see it, there are several key reasons for why we can comfortably use R for our analyzes and some of them are unique to R.  Here are some I could think of while writing this blog post - I'm sure I forgot something:
