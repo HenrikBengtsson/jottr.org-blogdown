@@ -76,7 +76,7 @@ Happy parallelly futuring!
 
 
 <small>
-(*) If you are interested in all other updates in **future** 1.20.1, see blog post ['future 1.20.1 - The Future Just Got Much Brighter'](/2020/11/03/future-1.20.1-the-future-just-got-much-brighter/).
+(*) If you are interested in all other updates in **future** 1.20.1, see blog post ['future 1.20.1 - Our Future Just Got a Bit Brighter'](/2020/11/03/future-1.20.1-our-future-just-got-a-bit-brighter/).
 </small>
 
 
