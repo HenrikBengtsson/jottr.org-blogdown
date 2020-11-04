@@ -28,9 +28,7 @@ Definition: existing or occurring at a later time
 </blockquote>
 
 
-(If you are interested in the new features in **future** 1.20.1, see blog post 'NNNNNNNN'.)
-
-I've cleaned up around the house - the **[future]** package now depends on the new **[parallelly]** package.  Now, if you're like me and concerned about bloated package dependencies, I'm sure you immediately wondered why I chose to introduce a new dependency?  I'll explain below, but let me be start to make a few things clear:
+I've cleaned up around the house - the **[future]** package now(*) depends on the new **[parallelly]** package.  Now, if you're like me and concerned about bloated package dependencies, I'm sure you immediately wondered why I chose to introduce a new dependency?  I'll explain below, but let me be start to make a few things clear:
 
 * The functions in the **parallelly** package used to be part of the **future** package
 
@@ -74,6 +72,10 @@ The roles and responsibility of the **parallelly** and **future** packages are w
 
 Happy parallelly futuring!
 
+
+<small>
+(*) If you are interested in all other updates in **future** 1.20.1, see blog post ['future 1.20.1 - The Future Just Got Much Brighter'](/2020/11/03/future-1.20.1-the-future-just-got-much-brighter/).
+</small>
 
 
 ## Links
