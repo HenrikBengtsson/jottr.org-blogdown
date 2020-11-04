@@ -39,7 +39,7 @@ Each time we use R to analyze data, we rely on the assumption that functions use
 
 * The majority of R packages are distributed through a single repository (CRAN)
 
-* CRAN requires that all R packages pass checks on past, current, and upcoming R versions, across operating systems (MS Windows, Linux, macOS, and Solaris)
+* CRAN requires that all R packages pass checks on past, current, and upcoming R versions, across operating systems (MS Windows, Linux, macOS, and Solaris), and on different compilers
 
 * New checks are continuously added to `R CMD check` causing the quality of new and existing R packages to improve over time
 
@@ -121,7 +121,7 @@ of the _Future API_ and the future ecosystem at large.
 
 
 
-Have a safe future!
+May the future be with you!
 
 
 
