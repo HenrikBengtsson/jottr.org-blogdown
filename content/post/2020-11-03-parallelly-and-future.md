@@ -1,6 +1,6 @@
 ---
 title: "parallelly, future - Cleaning Up Around the House"
-date: 2020-11-03 11:00:00 -0800
+date: 2020-11-03 18:00:00 -0800
 categories:
  - R
 tags:
@@ -11,6 +11,8 @@ tags:
  - parallelly
  - HPC
  - parallel-processing
+ - hpc
+ - compute-clusters
  - asynchronous
 ---
 
@@ -28,7 +30,7 @@ Definition: existing or occurring at a later time
 </blockquote>
 
 
-I've cleaned up around the house - the **[future]** package now(*) depends on the new **[parallelly]** package.  Now, if you're like me and concerned about bloated package dependencies, I'm sure you immediately wondered why I chose to introduce a new dependency?  I'll explain below, but let me be start to make a few things clear:
+I've cleaned up around the house - the **[future]** package now(*) depends on the new **[parallelly]** package.  Now, if you're like me and concerned about bloating package dependencies, I'm sure you immediately wondered why I chose to introduce a new dependency?  I'll explain below, but let me be start by clarifying a few things:
 
 * The functions in the **parallelly** package used to be part of the **future** package
 
