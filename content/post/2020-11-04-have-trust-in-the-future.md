@@ -30,7 +30,7 @@ Each time we use R to analyze data, we rely on the assumption that functions use
 
 * R, and its predecessor S, has undergone lots of real-world validation over the last two-three decades
 
-* Mmillions of users and developers use and vet R regularly, which increases the chances for detecting mistakes and bugs
+* Millions of users and developers use and vet R regularly, which increases the chances for detecting mistakes and bugs
 
 * R has one established, agreed-upon framework for validating an R package: `R CMD check`
 
