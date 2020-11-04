@@ -24,13 +24,13 @@ tags:
 <img src="/post/you_dont_have_to_worry_about_your_future.jpg" alt="A fortune cookie that reads 'You do not have to worry about your future'" style="border: solid 1px; max-width: 70%"/>
 </center>
 
-Each time we use R to analyze data, we rely on the assumption that the R functions we use produce the correct results.  If we couldn't make this assumption, each of use would have to spend a lot of time validating every nitty detail.  Luckily, we don't have to do this.  As I see it, there are several key reasons for why we can comfortably use R for our analyzes and some of them are unique to R.  Here are some I could think of while writing this blog post - I'm sure I forgot something:
+Each time we use R to analyze data, we rely on the assumption that functions used produce correct results.  If we can't make this assumption, we had to spend a lot of time validating every nitty detail.  Luckily, we don't have to do this.  There are many reasons for why we can comfortably use R for our analyzes and some of them are unique to R.  Here are some I could think of while writing this blog post - I'm sure I forgot something:
 
 * R is a functional language with few side effects ("just like mathematical functions")
 
-* R, and it's predecessor S, has undergone lots of real-world validation over the last two decades
+* R, and its predecessor S, has undergone lots of real-world validation over the last two-three decades
 
-* R is used and vetted by millions of users and developers regularly, which increases the chances for detecting mistakes and bugs
+* Mmillions of users and developers use and vet R regularly, which increases the chances for detecting mistakes and bugs
 
 * R has one established, agreed-upon framework for validating an R package: `R CMD check`
 
@@ -40,11 +40,11 @@ Each time we use R to analyze data, we rely on the assumption that the R functio
 
 * New checks are continuously added to `R CMD check` causing the quality of new and existing R packages to improve over time
 
-* CRAN requires that package updates must not break any reverse package dependencies
+* CRAN asserts that package updates do not break reverse package dependencies
 
 * R developers spend a substantial amount of time validating their packages
 
-* R has end-users and developers that complement each other from a broad variety of expertise
+* R has users and developers with various backgrounds and areas of expertise
 
 * R has a community that actively engages in discussions on best practices, troubleshooting, bug fixes, testing, language development
 
