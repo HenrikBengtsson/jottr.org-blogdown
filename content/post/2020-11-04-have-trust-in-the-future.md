@@ -20,17 +20,17 @@ tags:
  - asynchronous
 ---
 
-Each time we use R to analyze data, we rely on the assumption that the R functions we use produce the correct results.  If we couldn't make this assumption, each of use would have to spend a lot of time validating every nitty detail.  Luckily, we don't have to do this.  As I see it, there are several key reasons for why we can confortably use R for our analyzes and some of them are unique to R.  Here are some I could think of while writing this blog post - I'm sure I forgot something:
+Each time we use R to analyze data, we rely on the assumption that the R functions we use produce the correct results.  If we couldn't make this assumption, each of use would have to spend a lot of time validating every nitty detail.  Luckily, we don't have to do this.  As I see it, there are several key reasons for why we can comfortably use R for our analyzes and some of them are unique to R.  Here are some I could think of while writing this blog post - I'm sure I forgot something:
 
 * R is a functional language with few side effects ("just like mathematical functions")
 
 * R, and it's predecessor S, has undergone lots of real-world validation over the last two decades
 
-* R is used and vetted by millions of users and developers on a regular basis, which increases the chances for detecting mistakes and bugs
+* R is used and vetted by millions of users and developers regularly, which increases the chances for detecting mistakes and bugs
 
 * R has one established, agreed-upon framework for validating an R package: `R CMD check`
 
-* An absolute majority of R packages are distributed through a single repository (CRAN)
+* The majority of R packages are distributed through a single repository (CRAN)
 
 * CRAN requires that all R packages pass checks on past, current, and upcoming R versions, across operating systems (MS Windows, Linux, macOS, and Solaris)
 
@@ -42,7 +42,7 @@ Each time we use R to analyze data, we rely on the assumption that the R functio
 
 * R has end-users and developers that complement each other from a broad variety of expertise
 
-* R has a community that actively engage in discussion on best practices, troubleshooting, bug fixes, testing, language development
+* R has a community that actively engages in discussions on best practices, troubleshooting, bug fixes, testing, language development
 
 * There are many third-party contributed tools for developing and testing R packages
 
@@ -51,11 +51,11 @@ I think [Jan Vitek] summarized it well in the 'Why R?' panel discussion on ['Per
 > R is an ecosystem.  It is not a language.  The language is the little bit on top.  You come for the ecosystem - the books, all of the questions and answers, the snippets of code, the quality of CRAN. ... The quality assurance that CRAN brings ... we don't have that in any other language that I know of.
 
 
-Without the above technical and social ecosystem, I believe the quality of my own R packages would have been substantially lower.  Regardless how many unit tests I would write, I would never be able to achieve the same amount of validation that the full R ecosystem brings to the table.
+Without the above technical and social ecosystem, I believe the quality of my own R packages would have been substantially lower.  Regardless of how many unit tests I would write, I could never achieve the same amount of validation that the full R ecosystem brings to the table.
 
 
 
-When you use the [future framework for parallel and distributed processing](https://cran.r-project.org/package=future), it is essential that it delivers a corresponding level of correctness and reproducibility to that you get when implementing the same task sequentially.   Because of this, validation is a _top priority_ and part of the design and implementation throughout the future ecosystem.  Here is an overview how it is validated:
+When you use the [future framework for parallel and distributed processing](https://cran.r-project.org/package=future), it is essential that it delivers a corresponding level of correctness and reproducibility to that you get when implementing the same task sequentially.   Because of this, validation is a _top priority_ and part of the design and implementation throughout the future ecosystem.  Below, I summarize how it is validated:
 
 * All the essential core packages part of the future framework,
 **[future]**, **[globals]**, **[listenv]**, and **[parallelly]**, implement a rich set of package tests.
@@ -86,8 +86,7 @@ backends.
 It would be a daunting task for a developer to validate the correctness of
 their software with all existing backends. Even if they would achieve that,
 there may be additional third-party future backends that they are not aware
-of, that they do not have the possibility to test with, or that yet have not
-been developed.
+of, that they do not have the possibility to test with, or that are yet to be developed.
 The **future.tests** framework was sponsored by an [R Consortium ISC grant](https://www.r-consortium.org/projects/awarded-projects).
 
 * Since **[foreach]** is used by a large number of essential
@@ -97,7 +96,7 @@ validation. Specifically, I dynamically tweak the examples of
 **[plyr]**, and **[TSP]** to use the **[doFuture]** adaptor.
 This allows me to run these examples with a variety of future backends to
 validate that the examples produce no run-time errors, which indirectly
-validates the backends as well as the _Future API_.
+validates the backends and the _Future API_.
 In the past, these types of tests helped to identify and resolve corner cases
 where automatic identification of global variables would fail.
 As a side note, several of these foreach-based examples fail when using a
