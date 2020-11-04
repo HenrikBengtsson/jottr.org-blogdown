@@ -73,8 +73,11 @@ and [AppVeyor CI]), an on [R-hub].
 
 * For each new release, these packages undergo full reverse-package
 dependency checks using **[revdepcheck]**.
-As of October 2020, the **future** package is tested against 140+
-direct reverse-package dependencies available on CRAN and Bioconductor.
+As of October 2020, the **future** package is tested against more than 140
+direct reverse-package dependencies available on CRAN and Bioconductor,
+including packages **[future.apply]**, **[furrr]**, **[doFuture]**,
+**[drake]**, **[googleComputeEngineR]**, **[mlr3]**, **[plumber]**,
+**[promises]** (used by **[shiny]**), and **[Seurat]**.
 These checks are performed on Linux with both the default settings and
 when forcing tests to use multisession workers (SOCK clusters), which further
 validates that globals and packages are identified correctly.
@@ -130,29 +133,33 @@ May the future be with you!
 * **future** package: [CRAN](https://cran.r-project.org/package=future), [GitHub](https://github.com/HenrikBengtsson/future)
 * **future.tests** package: [CRAN](https://cran.r-project.org/package=future.tests), [GitHub](https://github.com/HenrikBengtsson/future.tests)
 
-
-[furrr]: https://cran.r-project.org/package=furrr
 [future]: https://cran.r-project.org/package=future
+[globals]: https://CRAN.R-Project.org/package=globals
+[listenv]: https://CRAN.R-Project.org/package=listenv
+[parallelly]: https://cran.r-project.org/package=parallelly
 [future.apply]: https://cran.r-project.org/package=future.apply
+[furrr]: https://cran.r-project.org/package=furrr
 [doFuture]: https://cran.r-project.org/package=doFuture
 [future.batchtools]: https://cran.r-project.org/package=future.batchtools
 [future.callr]: https://cran.r-project.org/package=future.callr
 [future.tests]: https://cran.r-project.org/package=future.tests
-[parallelly]: https://cran.r-project.org/package=parallelly
+
+[revdepcheck]: https://github.com/r-lib/revdepcheck
+[drake]: https://cran.r-project.org/package=drake
+[googleComputeEngineR]: https://cran.r-project.org/package=googleComputeEngineR
+[mlr3]: https://cran.r-project.org/package=mlr3
+[plumber]: https://cran.r-project.org/package=plumber
+[promises]: https://cran.r-project.org/package=promises
+[shiny]: https://cran.r-project.org/package=shiny
+[Seurat]: https://cran.r-project.org/package=Seurat
 
 [caret]: https://CRAN.R-Project.org/package=caret
-[doFuture]: https://CRAN.R-Project.org/package=doFuture
 [doMC]: https://CRAN.R-Project.org/package=doMC
 [foreach]: https://CRAN.R-Project.org/package=foreach
-[future]: https://CRAN.R-Project.org/package=future
-[future.tests]: https://CRAN.R-Project.org/package=future
 [glmnet]: https://CRAN.R-Project.org/package=glmnet
-[globals]: https://CRAN.R-Project.org/package=globals
-[listenv]: https://CRAN.R-Project.org/package=listenv
 [NMF]: https://CRAN.R-Project.org/package=NMF
 [plyr]: https://CRAN.R-Project.org/package=plyr
 [TSP]: https://CRAN.R-Project.org/package=TSP
-[revdepcheck]: https://github.com/r-lib/revdepcheck
 
 [GitHub Actions]: https://github.com/features/actions
 [Travis CI]: https://travis-ci.org/
