@@ -27,7 +27,7 @@ tags:
 <img src="/post/you_dont_have_to_worry_about_your_future.jpg" alt="A fortune cookie that reads 'You do not have to worry about your future'" style="border: solid 1px; max-width: 70%"/>
 </center>
 
-Each time we use R to analyze data, we rely on the assumption that functions used produce correct results.  If we can't make this assumption, we had to spend a lot of time validating every nitty detail.  Luckily, we don't have to do this.  There are many reasons for why we can comfortably use R for our analyses and some of them are unique to R.  Here are some I could think of while writing this blog post - I'm sure I forgot something:
+Each time we use R to analyze data, we rely on the assumption that functions used produce correct results.  If we can't make this assumption, we have to spend a lot of time validating every nitty detail.  Luckily, we don't have to do this.  There are many reasons for why we can comfortably use R for our analyses and some of them are unique to R.  Here are some I could think of while writing this blog post - I'm sure I forgot something:
 
 * R is a functional language with few side effects ("just like mathematical functions")
 
