@@ -1,6 +1,6 @@
 ---
 title: "Have Trust in the Future"
-date: 2020-11-04 10:00:00 -0800
+date: 2020-11-04 13:00:00 -0800
 categories:
  - R
 tags:
@@ -18,6 +18,9 @@ tags:
  - HPC
  - parallel-processing
  - asynchronous
+ - testing
+ - validation
+ - CRAN
 ---
 
 <center>
@@ -46,7 +49,7 @@ Each time we use R to analyze data, we rely on the assumption that functions use
 
 * R has users and developers with various backgrounds and areas of expertise
 
-* R has a community that actively engages in discussions on best practices, troubleshooting, bug fixes, testing, language development
+* R has a community that actively engages in discussions on best practices, troubleshooting, bug fixes, testing, and language development
 
 * There are many third-party contributed tools for developing and testing R packages
 
