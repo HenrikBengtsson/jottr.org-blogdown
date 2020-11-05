@@ -41,7 +41,8 @@ I've cleaned up around the house - with the recent release of **[future]** 1.20.
 
 Specifically, I’ve moved the following functions from the **future** package to the **parallelly** package:
 
-* `as.cluster()` - Coerce an object to a 'cluster' object 
+* `as.cluster()` - Coerce an object to a 'cluster' object
+* `c(...)` - Combine multiple 'cluster' objects into a single, large cluster
 * `autoStopCluster()` - Automatically stop a 'cluster' when garbage collected
 * `availableCores()` - Get number of available cores on the current machine; a better, safer alternative to `parallel::detectCores()`
 * `availableWorkers()` - Get set of available workers
