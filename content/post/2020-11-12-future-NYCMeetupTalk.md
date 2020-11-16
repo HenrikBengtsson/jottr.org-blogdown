@@ -22,11 +22,11 @@ tags:
 </div>
 
 
-I presented _Future: Simple, Friendly Parallel Processing for R_ (65 minutes; 59 slides + Q&A slides) at [New York Open Statistical Programming Meetup](https://nyhackr.org/), on November 9, 2020:
+I presented _Future: Simple, Friendly Parallel Processing for R_ (67 minutes; 59 slides + Q&A slides) at [New York Open Statistical Programming Meetup](https://nyhackr.org/), on November 9, 2020:
 
 * [HTML](https://docs.google.com/presentation/d/1E2Gcm33_uMrhQL7jLzodlMXUefnSshHUdYsoXWAkFYE/edit?usp=sharing) (incremental Google Slides; requires online access)
 * [PDF](https://www.jottr.org/presentations/NYCMeetup2020/BengtssonH_20191109-futures-NYC.pdf) (flat slides)
-* [Video](https://youtu.be/2ZlpFkFMy7E?t=630) (presentation starts at 0h10m30s, Q&A starts at 1h17m40m)
+* [Video](https://youtu.be/2ZlpFkFMy7E?t=630) (presentation starts at 0h10m30s, Q&A starts at 1h17m40s)
 
 I like to thanks everyone who attented and everyone who asked lots of brilliant questions during the Q&A.  I'd also want to express my gratitude to Amada, Jared, and Noam for the invitation and making this event possible.  It was great fun.
 
