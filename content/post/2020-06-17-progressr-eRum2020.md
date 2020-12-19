@@ -27,10 +27,10 @@ tags:
 
 I presented _Progressr: An Inclusive, Unifying API for Progress Updates_ (15 minutes; 20 slides) at [e-Rum 2020](https://2020.erum.io/), on June 17, 2020:
 
+* [Abstract](https://www.jottr.org/presentations/eRum2020/BengtssonH_20200617-progressr-An_Inclusive,_Unifying_API_for_Progress_Updates.abstract.txt)
 * [HTML](https://docs.google.com/presentation/d/11RymPwL90rPc0dQwpNCnw5KQC_76tuDK7uB7rq26oIg/present#slide=id.g88962cfdb7_0_0) (incremental Google Slides; requires online access)
 * [PDF](https://www.jottr.org/presentations/eRum2020/BengtssonH_20200617-progressr-An_Inclusive,_Unifying_API_for_Progress_Updates.pdf) (flat slides)
-* [Abstract](https://www.jottr.org/presentations/eRum2020/BengtssonH_20200617-progressr-An_Inclusive,_Unifying_API_for_Progress_Updates.abstract.txt)
-* Video - to be posted by the organizers
+* [Video](https://www.youtube.com/watch?v=NwVOvfpGq4o&t=3001s) (starts at 00h49m58s)
 
 
 I am grateful for everyone involved who made e-Rum 2020 possible.  I cannot imagine having to cancel the on-site Milano conference that had planned for more than a year and then start over to re-organize and create a fabulous online experience for ~1,500 participants in such short notice. Your contribution to the R Community in these times is invaluable - thank you soo much.
