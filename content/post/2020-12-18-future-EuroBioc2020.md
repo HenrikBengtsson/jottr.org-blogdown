@@ -20,7 +20,7 @@ tags:
 
 <div style="width: 40%; margin: 2ex; float: right;"/>
  <center>
-   <img src="/post/LukeZapia_20201218-EuroBioc2020-future_mindmap.jpg" alt="A summary of Henrik Bengtsson's future talk at the European Bioconductor Meeting 2020 in the form of a mindmap on a whileboard" style="border: 1px solid #666;/>
+   <img src="/post/LukeZapia_20201218-EuroBioc2020-future_mindmap.jpg" alt="A hand-drawn summary of Henrik Bengtsson's future talk at the European Bioconductor Meeting 2020 in the form of a mindmap on a whileboard" style="border: 1px solid #666;/>
    <span style="font-size: 80%; font-style: italic;"><a href="https://twitter.com/_lazappi_">Luke Zappia</a>'s summary of the talk</span>
  </center>
 </div>
@@ -34,6 +34,7 @@ You'll find my slides (39 slides + Q&A slides; 35 minutes) below:
 * [PDF](/presentations/EuroBioc2020/BengtssonH_20201218-futures-EuroBioc2020.pdf) (flat slides)
 * Video (to be uploaded by the organizers)
 
+I want to thank the organizers for inviting me to this Bioconductor conference.  The [Bioconductor Project](http://bioconductor.org/) provides a powerful and an important technical and social environment for developing and conducting computational research in bioinformatics and genomics.  It has a great, world-wide community and engaging leadership which effortlessly keep delivering great tools (~2,000 R packages as of December 2020) and [training](http://bioconductor.org/help/course-materials/) year after year.  I am honored for the opportunity to give a keynote presentation to this community.
 
 \- Henrik
 
