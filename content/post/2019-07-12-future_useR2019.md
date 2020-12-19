@@ -19,6 +19,7 @@ tags:
  - compute clusters
  - hpc
  - progress updates
+ - video
  
 ---
 

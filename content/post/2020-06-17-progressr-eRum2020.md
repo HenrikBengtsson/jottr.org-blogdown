@@ -14,6 +14,7 @@ tags:
  - talk
  - presentation
  - slides
+ - video
  
 ---
 

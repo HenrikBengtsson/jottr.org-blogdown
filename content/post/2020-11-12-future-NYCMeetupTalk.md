@@ -11,6 +11,7 @@ tags:
  - talk
  - presentation
  - slides
+ - video
  
 ---
 
@@ -46,4 +47,4 @@ I like to thanks everyone who attented and everyone who asked lots of brilliant 
   * **future.batchtools** package: [CRAN](https://cran.r-project.org/package=future.batchtools), [GitHub](https://github.com/HenrikBengtsson/future.batchtools)
   * **future.callr** package: [CRAN](https://cran.r-project.org/package=future.callr), [GitHub](https://github.com/HenrikBengtsson/future.callr)
   * **future.tests** package: [CRAN](https://cran.r-project.org/package=future.tests), [GitHub](https://github.com/HenrikBengtsson/future.tests)
-  * **clustermq** package: [CRAN](https://cran.r-project.org/package=clustermq), [GitHub](https://github.com/mschubert/clustermq/issues)
+  * **clustermq** package: [CRAN](https://cran.r-project.org/package=clustermq), [GitHub](https://github.com/mschubert/clustermq)

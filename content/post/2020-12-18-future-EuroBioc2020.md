@@ -13,7 +13,8 @@ tags:
  - slides
  - bioconductor
  - BiocParallel
- 
+ - HPC
+ - video
 ---
 
 
@@ -49,5 +50,5 @@ You'll find my slides (39 slides + Q&A slides; 35 minutes) below:
   * **doParallel** package: [CRAN](https://cran.r-project.org/package=doParallel), [GitHub](https://github.com/RevolutionAnalytics/doParallel)
   * **future.batchtools** package: [CRAN](https://cran.r-project.org/package=future.batchtools), [GitHub](https://github.com/HenrikBengtsson/future.batchtools)
   * **future.callr** package: [CRAN](https://cran.r-project.org/package=future.callr), [GitHub](https://github.com/HenrikBengtsson/future.callr)
-  * **future.tests** package: [CRAN](https://cran.r-project.org/package=future.tests), [GitHub](https://github.com/HenrikBengtsson/future.tests)
-  * **clustermq** package: [CRAN](https://cran.r-project.org/package=clustermq), [GitHub](https://github.com/mschubert/clustermq/issues)
+  * **clustermq** package: [CRAN](https://cran.r-project.org/package=clustermq), [GitHub](https://github.com/mschubert/clustermq)
+  * **BiocParallel** package: [CRAN](https://cran.r-project.org/package=BiocParallel), [GitHub](https://github.com/Bioconductor/BiocParallel)
