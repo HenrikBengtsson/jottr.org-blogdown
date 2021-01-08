@@ -1,7 +1,7 @@
 ---
 title: "NYC R Meetup: Slides on Future"
 slug: "future-nycmeetup-slides"
-date: 2020-11-12 19:30:00 -0700
+date: 2020-11-12 19:30:00 -0800
 categories:
  - R
 tags:

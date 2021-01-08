@@ -1,7 +1,7 @@
 ---
 title: "My Keynote 'Future' Presentation at the European Bioconductor Meeting 2020"
 slug: "future-eurobioc2020-slides"
-date: 2020-12-18 21:00:00 -0700
+date: 2020-12-19 10:00:00 -0800
 categories:
  - R
 tags:
