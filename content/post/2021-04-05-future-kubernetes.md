@@ -198,7 +198,7 @@ As expected, we have one scheduler and four workers.
 ## Step 3: Connect to RStudio Server running in the cluster
 
 Next we'll connect to the RStudio instance running via RStudio Server
-on our main (scheduler) pod, using the browser on our laptop  (step 3 in Figure 1):
+on our main (scheduler) pod, using the browser on our laptop  (Step 3 in Figure 1):
 
 After installing the Helm chart, you should have seen a printout with some instructions on how
 to do this. First you need to connect a port on your laptop to the
