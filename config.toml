@@ -17,6 +17,7 @@
 # * https://github.com/yixuan/hugo-blog-en
 ## baseURL = "/"
 baseURL = "https://www.jottr.org/"
+baseURL = "https://jottr-draft.netlify.app/"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "JottR"
