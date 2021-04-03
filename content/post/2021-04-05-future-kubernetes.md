@@ -13,8 +13,10 @@ tags:
  - Linux containers
  - Docker
  - Rocker
- - RStudio
+ - RStudio Server
  - parallel processing
+ - Google Kubernetes Engine
+ - GKE
  - guest post
 ---
 
