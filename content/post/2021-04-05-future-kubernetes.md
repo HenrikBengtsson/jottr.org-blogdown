@@ -463,7 +463,7 @@ Briefly:
      - the worker processes start R processes that are instructed to
      regularly make a socket connection using a particular port on the
      main scheduler pod
-     - when you run `plan` (which calls `makeClusterPSOCK`) in RStudio, the RStudio Server process attempts to
+     - when you run `plan()` of **future** (which calls `makeClusterPSOCK()`) in RStudio, the RStudio Server process attempts to
   make socket connections to the workers using that same port
  3. Once the socket connections are established, command of the
    RStudio session returns to you and you can run your future-based
@@ -473,7 +473,7 @@ One thing I haven't had time to work through is how to easily scale
 the number of workers after the Kubernetes cluster is running and the
 Helm chart installed, or even how to auto-scale -- starting up
 workers as needed based on the number of workers requested via
-`plan`.
+`plan()`.
 
 
 ## Wrap up
