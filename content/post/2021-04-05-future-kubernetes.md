@@ -240,7 +240,7 @@ library(future)
 plan(cluster, manual = TRUE, quiet = TRUE)
 ```
 
-We don't need to say how many future workers we want. This is because the Helm chart sets the `MC_CORES` environment variable in the scheduler pod's `Renviron` file based on the number of worker pod replicas. Since `MC_CORES` is used by the **future** package (via `parallelly::availableCores`) as the default number of future workers, this ensures that there are only as many future workers as you have worker pods. However, if you modify the number of worker pods after installing the Helm chart, you may need to set the `workers` argument to `plan()` manually. (And note that if you were to specify more future workers than R worker processes (i.e., pods) you would get an error and if you were to specify fewer, you wouldn't be using all the resources that you are paying for.)
+We don't need to say how many future workers we want. This is because the Helm chart sets an environment variable in the scheduler pod's `Renviron` file based on the number of worker pod replicas. Since that variable is used by the **future** package (via `parallelly::availableCores()`) as the default number of future workers, this ensures that there are only as many future workers as you have worker pods. However, if you modify the number of worker pods after installing the Helm chart, you may need to set the `workers` argument to `plan()` manually. (And note that if you were to specify more future workers than R worker processes (i.e., pods) you would get an error and if you were to specify fewer, you wouldn't be using all the resources that you are paying for.)
 
 Now we can use the various tools in the **future** package as we would if
 on our own machine or working on a Linux cluster. The key thing is
