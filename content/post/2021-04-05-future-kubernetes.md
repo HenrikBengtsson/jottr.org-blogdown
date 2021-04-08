@@ -55,7 +55,7 @@ or company). In particular, I've
 experimented with [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine) and [Amazon's Elastic
 Kubernetes Service (EKS)](https://aws.amazon.com/eks). This post will demonstrate setting up your
 cluster using Google's GKE, but see
-my GitHub '[future-kubernetes]' repository for details on
+my GitHub [future-kubernetes] repository for details on
 doing it on Amazon's EKS. Note that while I've gotten things
 to work on EKS, there have been
 [various headaches](https://github.com/paciorek/future-kubernetes#AWS-troubleshooting)
@@ -115,10 +115,12 @@ Each pod runs a Docker container. I use my own [Docker container](https://github
 
 ## Step 1: Start the Kubernetes cluster
 
-Here I assume you have already installed (a) the command line interface to Google Cloud, (b)
-the `kubectl` interface for interacting with Kubernetes, and (c) `helm` for
-installing Helm charts (i.e., Kubernetes packages). Installation
-details can be found in the [future-kubernetes] repository.
+Here I assume you have already installed:
+  - the command line interface to Google Cloud,
+  - the `kubectl` interface for interacting with Kubernetes, and
+  - `helm` for installing Helm charts (i.e., Kubernetes packages).
+
+Installation details can be found in the [future-kubernetes] repository.
 
 First we'll start our cluster (the first part of Step 1 in Figure 1):
 
