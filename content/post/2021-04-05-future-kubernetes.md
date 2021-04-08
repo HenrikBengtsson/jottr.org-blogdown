@@ -68,7 +68,7 @@ follow along. In fact, part of my goal in setting this up has been to
 learn more about Kubernetes, which I've done, but note that there's *a lot* to it.
 
 More details about the setup, including how it was developed and
-troubleshooting tips can be found in my '[future-kubernetes]' repository. 
+troubleshooting tips can be found in my [future-kubernetes] repository. 
 
 
 ## How it works (briefly)
@@ -79,6 +79,7 @@ This diagram in Figure 1 outlines the pieces of the setup.
 <img src="/post/k8s.png" alt="Overview of using future on a Kubernetes cluster" width="700"/>
 <figcaption style="font-style: italic;">Figure 1. Overview of using future on a Kubernetes cluster</figcaption>
 </figure>
+
 
 Work on a Kubernetes cluster is divided amongst *pods*, which carry out
 the components of your work and can communicate with each other. A pod is
@@ -105,19 +106,19 @@ We use the Kubernetes package manager, Helm, to run the pods of interest:
  managed by the **future** package
  
  Helm manages the pods and related *services*. An example of a service
- is to open a port on the main pod so the R worker processes can
+ is to open a port on the scheduler pod so the R worker processes can
  connect to that port, allowing the scheduler pod RStudio Server process to
  communicate with the worker R processes. I have a [Helm chart](https://github.com/paciorek/future-helm-chart) that does this; it borrows heavily from the [Dask Helm chart](https://github.com/dask/helm-chart) for the Dask package for Python.
 
-Each pod runs a Docker container. I use my own [Future-Kubernetes Docker container](https://github.com/paciorek/future-kubernetes-docker) that layers a bit on top of the [Rocker](https://rocker-project.org) container that contains R and RStudio Server.
+Each pod runs a Docker container. I use my own [Docker container](https://github.com/paciorek/future-kubernetes-docker) that layers a bit on top of the [Rocker](https://rocker-project.org) container that contains R and RStudio Server.
 
 
 ## Step 1: Start the Kubernetes cluster
 
-Here I assume you have the command line interface to Google Cloud and
-the `kubectl` interface for interacting with Kubernetes and `helm` for
+Here I assume you have already installed (a) the command line interface to Google Cloud, (b)
+the `kubectl` interface for interacting with Kubernetes, and (c) `helm` for
 installing Helm charts (i.e., Kubernetes packages). Installation
-details can be found in the '[future-kubernetes]' repository.
+details can be found in the [future-kubernetes] repository.
 
 First we'll start our cluster (the first part of Step 1 in Figure 1):
 
@@ -138,7 +139,7 @@ You'll want to specify the total number of cores on the virtual
 machines to be equal to the number of R workers that you want to start
 and that you specify in the Helm chart (as discussed below). Here we
 ask for four one-cpu nodes, and our Helm chart starts four workers, so
-all is well. See the Modifications section below on how to start up a
+all is well. See the [Modifications section](#modifications) below on how to start up a
 different number of workers.
 
 Since the RStudio Server process that you interact with wouldn't generally be doing heavy
@@ -198,7 +199,7 @@ As expected, we have one scheduler and four workers.
 ## Step 3: Connect to RStudio Server running in the cluster
 
 Next we'll connect to the RStudio instance running via RStudio Server
-on our main (scheduler) pod, using the browser on our laptop  (Step 3 in Figure 1):
+on our main (scheduler) pod, using the browser on our laptop  (Step 3 in Figure 1).
 
 After installing the Helm chart, you should have seen a printout with some instructions on how
 to do this. First you need to connect a port on your laptop to the
@@ -210,9 +211,7 @@ export RSTUDIO_SERVER_PORT=8787
 kubectl port-forward --namespace default svc/future-scheduler $RSTUDIO_SERVER_PORT:8787 &
 ```
 
-You can now connect from your browser to the RStudio Server instance by going to URL:
-
-<https://127.0.0.1:8787>
+You can now connect from your browser to the RStudio Server instance by going to the URL: <https://127.0.0.1:8787>.
 
 Enter `rstudio` as the username and `future` as the password to login
 to RStudio.
@@ -240,20 +239,20 @@ library(future)
 plan(cluster, manual = TRUE, quiet = TRUE)
 ```
 
-We don't need to say how many future workers we want. This is because the Helm chart sets an environment variable in the scheduler pod's `Renviron` file based on the number of worker pod replicas. Since that variable is used by the **future** package (via `parallelly::availableCores()`) as the default number of future workers, this ensures that there are only as many future workers as you have worker pods. However, if you modify the number of worker pods after installing the Helm chart, you may need to set the `workers` argument to `plan()` manually. (And note that if you were to specify more future workers than R worker processes (i.e., pods) you would get an error and if you were to specify fewer, you wouldn't be using all the resources that you are paying for.)
+The key thing is that we set `manual = TRUE` above. This ensures that the functions from the **future** package don't try to start R processes on the workers, as those R processes have already been started by Kubernetes and are waiting to connect to the main (RStudio Server) process.
+
+Note that we don't need to say how many future workers we want. This is because the Helm chart sets an environment variable in the scheduler pod's `Renviron` file based on the number of worker pod replicas. Since that variable is used by the **future** package (via `parallelly::availableCores()`) as the default number of future workers, this ensures that there are only as many future workers as you have worker pods. However, if you modify the number of worker pods after installing the Helm chart, you may need to set the `workers` argument to `plan()` manually. (And note that if you were to specify more future workers than R worker processes (i.e., pods) you would get an error and if you were to specify fewer, you wouldn't be using all the resources that you are paying for.)
 
 Now we can use the various tools in the **future** package as we would if
-on our own machine or working on a Linux cluster. The key thing is
-that we set `manual = TRUE` above. This ensures that the functions
-from the **future** package don't try to start R processes on the workers, as those R processes have already been started by Kubernetes and are waiting to connect to the main (RStudio Server) process. 
+on our own machine or working on a Linux cluster.
 
-Now we can run our parallelized operations. I'm going to do the
+Let's run our parallelized operations. I'm going to do the
 world's least interesting calculation of calculating the mean of many
 (10 million)
 random numbers forty separate times in parallel. Not interesting, but
 presumably if you're reading this you have your own interesting
 computation in mind and hopefully know how to do it using future's
-tools such as **[future.apply]** and **[foreach]** with **[doFuture]**, e.g.
+tools such as **[future.apply]** and **[foreach]** with **[doFuture]**.
 
 ```r
 library(future.apply)
@@ -317,7 +316,7 @@ To add additional R packages, go into the `future-helm-chart`
   #    value: data.table
 ```
 
-by removing the "#" comment character and putting the R packages you
+by removing the "#" comment characters and putting the R packages you
 want installed in place of `data.table`, with the names of the
 packages separated by spaces, e.g.,
 
@@ -401,11 +400,11 @@ fashion of a Linux machine (in this case using `apt` commands such as
 ### Connect to a virtual machine
 
 Or to connect directly to an underlying VM, you can first determine
-the name of the VM and then use the gcloud tools to connect to it.
+the name of the VM and then use the `gcloud` tools to connect to it.
 
 ```sh
 kubectl get nodes
-## now, with one of the nodes, 'gke-my-cluster-default-pool-8b490768-2q9v' in this case:
+## now, connect to one of the nodes, 'gke-my-cluster-default-pool-8b490768-2q9v' in this case:
 gcloud compute ssh gke-my-cluster-default-pool-8b490768-2q9v --zone us-west1-a
 ```
 
@@ -448,7 +447,7 @@ you're having difficulties that reinstalling the release doesn't fix.
 
 ## How does it work?
 
-I've provided many of the details of how it works in my '[future-kubernetes]' repository.
+I've provided many of the details of how it works in my [future-kubernetes] repository.
 
 The key pieces are:
 
@@ -464,12 +463,12 @@ Briefly:
   'scheduler' pod running RStudio Server and
   multiple worker pods each running an R process. All of the pods
   are running the Rocker-based Docker container 
- 2. the RStudio Server main process and the workers use socket connections
+ 2. The RStudio Server main process and the workers use socket connections
    (via the R function `socketConnection()`) to communicate:
      - the worker processes start R processes that are instructed to
      regularly make a socket connection using a particular port on the
      main scheduler pod
-     - when you run `plan()` of **future** (which calls `makeClusterPSOCK()`) in RStudio, the RStudio Server process attempts to
+     - when you run `future::plan()` (which calls `makeClusterPSOCK()`) in RStudio, the RStudio Server process attempts to
   make socket connections to the workers using that same port
  3. Once the socket connections are established, command of the
    RStudio session returns to you and you can run your future-based
