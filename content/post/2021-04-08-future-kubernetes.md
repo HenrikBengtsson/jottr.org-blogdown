@@ -1,7 +1,7 @@
 ---
 title: "Using Kubernetes and the Future Package to Easily Parallelize R in the Cloud"
 slug: future-and-kubernetes
-date: 2021-04-01 09:00:00 -0600
+date: 2021-04-08 19:00:00 -0700
 categories:
  - R
 tags:
