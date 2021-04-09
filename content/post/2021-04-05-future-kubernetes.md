@@ -116,9 +116,10 @@ Each pod runs a Docker container. I use my own [Docker container](https://github
 ## Step 1: Start the Kubernetes cluster
 
 Here I assume you have already installed:
-  - the command line interface to Google Cloud,
-  - the `kubectl` interface for interacting with Kubernetes, and
-  - `helm` for installing Helm charts (i.e., Kubernetes packages).
+
+ * the command line interface to Google Cloud,
+ * the `kubectl` interface for interacting with Kubernetes, and
+ * `helm` for installing Helm charts (i.e., Kubernetes packages).
 
 Installation details can be found in the [future-kubernetes] repository.
 
