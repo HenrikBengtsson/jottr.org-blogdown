@@ -1,5 +1,6 @@
 ---
 title: "Using Kubernetes and the Future Package to Easily Parallelize R in the Cloud"
+slug: future-and-kubernetes
 date: 2021-04-01 09:00:00 -0600
 categories:
  - R
@@ -17,6 +18,7 @@ tags:
  - parallel processing
  - Google Kubernetes Engine
  - GKE
+ - cloud
  - guest post
 ---
 
