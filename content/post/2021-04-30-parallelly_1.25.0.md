@@ -28,7 +28,7 @@ tags:
 
 * You can now use `availableCores(omit = n)` to ask for all but `n` CPU cores
 
-* On MS Windows 10, `makeClusterPSOCK()` will, finally, use the built-in SSH client for remote connections
+* `makeClusterPSOCK()` can finally use the built-in SSH client on MS Windows 10 to set up remote workers
 
 
 # availableCores(omit = n) is your new friend
