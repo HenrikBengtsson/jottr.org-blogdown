@@ -19,7 +19,9 @@ tags:
 
 <center>
 <img src="/post/nasa-climate-ice-core-small.jpg" alt="A 25-cm long ice core is held in front of the camera on a sunny day. The background is an endless snow-covered flat landscape and a bright blue sky." style="width: 65%;"/><br/>
-<small><em>A piece of an ice core - more pleasing to look at than yet another illustration of a CPU core</em></small>
+<small><em>A piece of an ice core - more pleasing to look at than yet another illustration of a CPU core<br/>
+<small>(Image credit: Ludovic Brucker, NASA's Goddard Space Flight Center)</small>
+</em></small>
 </center>
 
 **[parallelly]** 1.25.0 is on CRAN.  It comes with two major improvements:
