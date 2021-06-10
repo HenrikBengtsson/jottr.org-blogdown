@@ -72,7 +72,7 @@ With that approach, we know that `ncores` is at least one and never a missing va
 ncores <- parallelly::availableCores(omit = 1)
 ```
 
-Just use that and you'll be fine everywhere - it'll always give you a value of one or greater.  It's neater and less error prone.  Also, in contrast to `parallel::detectCores()`, `parallelly::availableCores()` respects various CU settings and configurations that the system wants your to follow.
+Just use that and you'll be fine everywhere - it'll always give you a value of one or greater.  It's neater and less error prone.  Also, in contrast to `parallel::detectCores()`, `parallelly::availableCores()` respects various CPU settings and configurations that the system wants your to follow.
 
 
 
