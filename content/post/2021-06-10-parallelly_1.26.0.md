@@ -27,7 +27,7 @@ In R 4.0.0, which was released in May 2020, `parallel::makeCluster(n)` gained th
 
 
 <center>
-<img src="/post/parallelly_faster_setup_of_cluster.png" alt="A line graph with 'Total setup time (s)' on the vertical axis ranging from 0 to 55, and 'Number of cores' on the horizontal axis ranging from 0 to 128. Two smooth curves, which look very linear with intersection at the origin and non-noticible variance, are drawn for the two setup strategies 'sequential' and 'parallel'. The 'sequential' line is much steeper." style="width: 65%;"/><br/>
+<img src="/post/parallelly_faster_setup_of_cluster.png" alt="An X-Y graph with 'Total setup time (s)' on the vertical axis ranging from 0 to 55, and 'Number of cores' on the horizontal axis ranging from 0 to 128. Two smooth curves, which look very linear with intersection at the origin and non-noticible variance, are drawn for the two setup strategies 'sequential' and 'parallel'. The 'sequential' line is much steeper." style="width: 65%;"/><br/>
 </center>
 <small><em>Figure: The total setup time versus the number of local cluster workers for the "sequential" setup strategy (red) and the new "parallel" strategy (turquoise). Data were collected on a 128-core Linux machine.<br/></em></small>
 
