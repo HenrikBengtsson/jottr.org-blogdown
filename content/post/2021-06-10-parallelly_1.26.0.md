@@ -49,19 +49,17 @@ you'll immediately benefit from this performance gain, because it relies on `par
 All credit for this improvement in **parallelly** and `parallelly::makeClusterPSOCK()` should go to Tomas Kalibera and Luke Tierney, who implemented support for this in R 4.0.0.
 
 
-_Edit 2021-06-11_: There's a bug in R causing the new `setup_strategy = "parallel"` to fail in the RStudio Console on some systems.  If you're running _RStudio Console_ and get "Error in makeClusterPSOCK(workers, ...) : Cluster setup failed. 8 of 8 workers failed to connect.", either set:
+_Edit 2021-06-11 and 2021-07-01_: There's a bug in R (>= 4.0.0 && <= 4.1.0) causing the new `setup_strategy = "parallel"` to fail in the RStudio Console on some systems.  If you're running _RStudio Console_ and get "Error in makeClusterPSOCK(workers, ...) : Cluster setup failed. 8 of 8 workers failed to connect.", update to **parallelly** 1.26.1 released on 2021-06-30:
+
+```r
+install.packages("parallelly")
+```
+
+which will work around this problem.  Alternatively, you can manually set:
 
 ```r
 options(parallelly.makeNodePSOCK.setup_strategy = "sequential")
 ```
-
-until this has been fixed in R, or install
-
-```r
-remotes::install_github("HenrikBengtsson/parallelly@1.26.0-9001")
-```
-
-and you don't have to do anything.
 
 
 _Comment_: Note that I could only test with up to 122 parallel workers, and not 128, which is the number of CPU cores available on the test machine.  The reason for this is that each worker consumes one R connection in the main R session, and R has a limit in the number of connection it can have open at any time.  The typical R installation can only have 128 connections open, and three are always occupied by the standard input (stdin), the standard output (stdout), and the standard error (stderr).  Thus, the absolute maximum number of workers I could use 125.  However, because I used the **[progressr]** package to report on progress, and a few other things that consumed a few more connections, I could only test up to 122 workers.  You can read more about this limit in [`?parallelly::freeConnections`], which also gives a reference for how to increase this limit by recompling R from source.
