@@ -16,3 +16,6 @@ tags:
 ---
 
 # ...
+
+
+The permanent URL for this page will become <https://www.jottr.org/2021/08/23/matrixstats-gsoc-2021/>
