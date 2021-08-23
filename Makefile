@@ -3,6 +3,9 @@ WEBSITE=https://www.jottr.org
 start: hugo_version
 	Rscript -e "cat(paste0('\nBlogdown PID: ',Sys.getpid(),'\n'))" -e "blogdown::serve_site()" &
 
+stop:
+	pkill hugo
+
 hugo_version:
 	@Rscript -e "cat(paste0(blogdown::hugo_version(),'\n'))"
 
