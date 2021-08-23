@@ -25,7 +25,7 @@ _Author: Angelina Panagopoulou, GSoC student developer, undergraduate in the Dep
 
 We are glad to announce recent CRAN releases of **[matrixStats]** with support for handling and returning name attributes.  This feature is added to make **matrixStats** functions handle names in the same manner as the base R function. In particular, the behavior of **matrixStats** functions is now the same as `apply` function in R, resolving previous lack of, or inconsistent, handling of row and column names. The added support for `names` and `dimnames` attributes has already reached a wide, active user base, while at the same time we expect to attract users and developers who lack this feature and therefore could not use **matrixStats** package for their needs.
 
-The **matrixStats** package provides high-performing functions operating on rows and columns of matrices. These functions are optimized such that both memory use and processing time are minimized. In order to minimize the overhead of handling name attributes, the naming support has been implemented in native \(C\) code, where possible. In **matrixStats** (>= 0.60.0), handling of row and column names is optional.  This is done to allow for maximum performance where needed.  In addition, in order to avoid breaking some scripts and packages that rely on the previous semi-inconsistent behavior of functions, special care has been taken to ensure backward compatibility by default for the time being. We have validated the correctness of these newly implemented features by extending existing package tests to check name attributes, measuring the code coverage with the **[covr]** package, and checking all 358 reverse-dependency packages using the **[revdepcheck]** package.
+The **matrixStats** package provides high-performing functions operating on rows and columns of matrices. These functions are optimized such that both memory use and processing time are minimized. In order to minimize the overhead of handling name attributes, the naming support is implemented in native \(C\) code, where possible. In **matrixStats** (>= 0.60.0), handling of row and column names is optional.  This is done to allow for maximum performance where needed.  In addition, in order to avoid breaking some scripts and packages that rely on the previous semi-inconsistent behavior of functions, special care has been taken to ensure backward compatibility by default for the time being. We have validated the correctness of these newly implemented features by extending existing package tests to check name attributes, measuring the code coverage with the **[covr]** package, and checking all 358 reverse-dependency packages using the **[revdepcheck]** package.
 
 
 ## Example
@@ -43,9 +43,10 @@ d  0.38520941 -0.8466505 -0.4779964
 e -0.01599926 -0.8907434  0.6334347
 ```
 
-If we use the **base** R method to calculate row medians, we see that the names attribute of the results reflects the row names of the input matrix:
+If we use the base R method to calculate row medians, we see that the names attribute of the results reflects the row names of the input matrix:
 
 ```r
+> library(stats)
 > apply(x, MARGIN = 1, FUN = median)
           a           b           c           d           e 
  0.30292612  1.62372626 -0.64681187 -0.47799635 -0.01599926 
@@ -54,15 +55,16 @@ If we use the **base** R method to calculate row medians, we see that the names 
 If we use **matrixStats** function `rowMedians` with argument `useNames = TRUE` set, we get the same result as above:
 
 ```r
-> matrixStats::rowMedians(x, useNames = TRUE)
+> library(matrixStats)
+> rowMedians(x, useNames = TRUE)
           a           b           c           d           e 
  0.30292612  1.62372626 -0.64681187 -0.47799635 -0.01599926
 ```
 
-If the name attributes are not of value, we can use `useNames = FALSE` as in:
+If the name attributes are not of interest, we can use `useNames = FALSE` as in:
 
 ```r
-> matrixStats::rowMedians(x, useNames = FALSE)
+> rowMedians(x, useNames = FALSE)
 [1]  0.30292612  1.62372626 -0.64681187 -0.47799635 -0.01599926
 ```
 
@@ -71,7 +73,7 @@ Doing so will also avoid the overhead, time and memory, that otherwise comes fro
 If we don't specify `useNames` explicitly, the default is currently `useNames = NA`, which corresponds to the non-documented behavior that existed in **matrixStats** (< 0.60.0).  For several functions, that corresponded to setting `useNames = FALSE`, however for other functions it corresponds to setting `useNames = TRUE`, and for others it might have set, say, row names but not column names.  In our example, the default happens to be the same as `useNames = FALSE`:
 
 ```r
-> matrixStats::rowMedians(x) # default as in matrixStats (< 0.60.0)
+> rowMedians(x) # default as in matrixStats (< 0.60.0)
 [1]  0.30292612  1.62372626 -0.64681187 -0.47799635 -0.01599926
 ```
 
