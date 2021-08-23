@@ -100,7 +100,7 @@ The project that introduces the consistent support for name attributes on the **
 * [Angelina Panagopoulou](https://github.com/AngelPn) - _Student Developer_: I am an undergraduate in the
   Department of Informatics & Telecommunications (DIT) in University of Athens.
 * [Jakob Peder Pettersen](https://github.com/yaccos) - _Mentor_: PhD Student, Department of Biotechnology and Food Science, Norwegian University of Science and Technology (NTNU). Jakob is a part of the [Almaas Lab](https://almaaslab.nt.ntnu.no/) and does research on genome-scale metabolic modeling and behavior of microbial communities.
-* [Henrik Bengtsson](https://github.com/HenrikBengtsson/) - _Co-Mentor_: Associate Professor, Department of Epidemiology and Biostatistics, University of California San Francisco (UCSF). He is the author and maintainer of a large number of CRAN and Bioconductor packages including the **matrixStats**.
+* [Henrik Bengtsson](https://github.com/HenrikBengtsson/) - _Co-Mentor_: Associate Professor, Department of Epidemiology and Biostatistics, University of California San Francisco (UCSF). He is the author and maintainer of a large number of CRAN and Bioconductor packages including **matrixStats**.
 
 ### Contributions
 
