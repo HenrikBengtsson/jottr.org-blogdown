@@ -129,7 +129,7 @@ If you can get to that point, you can also use those two remote machines to para
 
 What's new in **parallelly** 1.25.0 is that _MS Windows 10 users no longer have to install the PuTTY SSH client_ - the Unix-compatible `ssh` client that comes with all MS Windows 10 installations works out of the box.
 
-The reason why we couldn't use the built-in Windows 10 client before is that it has an [bug preventing us from using it for reverse tunneling](https://github.com/PowerShell/Win32-OpenSSH/issues/1265), which is needed for remote, parallel processing.  However, someone found a workaround, so that bug is no longer a blocker. for this bug, so thinow everything works as we want it to.
+The reason why we couldn't use the built-in Windows 10 client before is that it has an [bug preventing us from using it for reverse tunneling](https://github.com/PowerShell/Win32-OpenSSH/issues/1265), which is needed for remote, parallel processing.  However, someone found a workaround, so that bug is no longer a blocker. Thus, now `makeClusterPSOCK()` works as we always wanted it to.
 
 
 ## Take-homes
