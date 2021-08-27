@@ -216,7 +216,7 @@ export RSTUDIO_SERVER_PORT=8787
 kubectl port-forward --namespace default svc/future-scheduler $RSTUDIO_SERVER_PORT:8787 &
 ```
 
-You can now connect from your browser to the RStudio Server instance by going to the URL: <https://127.0.0.1:8787>.
+You can now connect from your browser to the RStudio Server instance by going to the URL: <http://127.0.0.1:8787>.
 
 Enter `rstudio` as the username and `future` as the password to login
 to RStudio.
