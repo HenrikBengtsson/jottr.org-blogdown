@@ -60,7 +60,7 @@ plan(multicore, workers = 4)
 y <- future_lapply(X, some_slow_fcn)
 ```
 
-Unfortunately, we cannot parallelize all types of code using forks..  If done, you might get an error, but in the worst case you crash your R process resulting in segmentation fault.  For example, some graphical user interfaces (GUIs) do not play well with forked processing, e.g. the RStudio Console, but also other GUIs.  Multi-threaded parallelization has also been reported to cause problems when run within forked parallelization.  We sometime talk about _non-fork-safe code_, in contrast to _fork-safe_ code, to refer to code that risks crashing the software if run in forked processes.
+Unfortunately, we cannot parallelize all types of code using forks.  If done, you might get an error, but in the worst case you crash (segmentation fault) your R process.  For example, some graphical user interfaces (GUIs) do not play well with forked processing, e.g. the RStudio Console, but also other GUIs.  Multi-threaded parallelization has also been reported to cause problems when run within forked parallelization.  We sometime talk about _non-fork-safe code_, in contrast to _fork-safe_ code, to refer to code that risks crashing the software if run in forked processes.
 
 Here is what R-core developer Simon Urbanek and author of `mclapply()` wrote in the R-devel thread ['mclapply returns NULLs on MacOS when running GAM'](https://stat.ethz.ch/pipermail/r-devel/2020-April/079384.html) on 2020-04-28:
 
@@ -251,7 +251,7 @@ plan(multisession, workers = 2L, rscript = c("nice", "*"))
 
 (*) Here we use `nice` as an example, because it is a simple way to
 illustrate how `rscript` can be used.  As a matter of fact, there is
-already [argument
+already an [argument
 `renice`](https://parallelly.futureverse.org/reference/makeClusterPSOCK.html),
 which we can use to achieve the same without using the `rscript`
 argument.
@@ -272,7 +272,7 @@ cluster nodes to have value `3.14`.  It will also set `MY_EMAIL` on
 them to the value of `Sys.getenv("MY_EMAIL")` in the current R
 session.
 
-Starting with **parallelly** (>= 1.29.0), we can now also _unset_
+Starting with **parallelly** 1.29.0, we can now also _unset_
 environment variables, in case they are set on the cluster nodes.  Any
 named element with value `NA_character_` will be unset, e.g.
 
@@ -291,7 +291,7 @@ launching each worker.
 It turns out that, in R _on Unix_, there is [a significant _latency_ in
 the communication between the parallel workers and the main R
 session](https://stat.ethz.ch/pipermail/r-devel/2020-November/080060.html)
-(*).  Starting in R (>= 4.1.0), it is possible to decrease this
+(**).  Starting in R (>= 4.1.0), it is possible to decrease this
 latency by setting a dedicated R option _on each of the workers_, e.g.
 
 ```r
@@ -328,8 +328,8 @@ res[, c(1:4,9)]
 ```
 
 From this, we see that the total latency overhead for 1,000 parallel
-tasks went down from 44.5 seconds to 0.60 seconds, which is ~75 times
-faster on average.  Does this mean your parallel code will run faster?
+tasks went from 44 seconds down to 0.60 seconds, which is ~75 times
+less on average.  Does this mean your parallel code will run faster?
 No, it is just the communication _latency_ that has decreased.  But,
 why waste time on _waiting_ on your results when you don't have to?
 This is why we changed the defaults in **parallelly**.  It will also
@@ -368,16 +368,16 @@ ggsave("parallelly_faster_turnarounds-figure.png", plot = gg, width = 7.0, heigh
 -->
 
 
-(*) _Technical details_: Options `socketOptions` sets the default
+(**) _Technical details_: Options `socketOptions` sets the default
 value of argument `options` of `base::socketConnection()`.  The
 default is `NULL`, but if we set it to `"no-delay"`, the created TCP
-socket connection will be configured to use the `TCP_NODELAY` flag.
-When using `TCP_NODELAY`, the TCP connection will run with the so
-called [Nagle's algorithm] disabled.  The Nagle's algorithm reduces
-the number of TCP packets needed to be sent over the network by making
-sure TCP fills up each packet before sending off. When using the new
+socket connections are configured to use the `TCP_NODELAY` flag.  When
+using `TCP_NODELAY`, a TCP connection will no longer use the so called
+[Nagle's algorithm], which otherwise is used to reduces the number of
+TCP packets needed to be sent over the network by making sure TCP
+fills up each packet before sending it off. When using the new
 `"no-delay"`, this buffering is disabled and packets are sent as soon
-as data comes in.  Credits for this improvement should go to Jeff
+as data come in.  Credits for this improvement should go to Jeff
 Keller, who identified and [reported the problem to
 R-devel](https://stat.ethz.ch/pipermail/r-devel/2020-November/080060.html),
 to Iñaki Úcar who pitched in, and to Simon Urbanek, who implemented
