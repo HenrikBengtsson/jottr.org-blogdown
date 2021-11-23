@@ -1,5 +1,5 @@
 ---
-title: "parallelly 1.25.0: availableCores(omit=n) and, finally, built-in SSH support for MS Windows 10 users"
+title: "parallelly 1.25.0: availableCores(omit=n) and, Finally, Built-in SSH Support for MS Windows 10 Users"
 slug: parallelly-1.25.0
 date: 2021-04-30 15:00:00 -0700
 categories:

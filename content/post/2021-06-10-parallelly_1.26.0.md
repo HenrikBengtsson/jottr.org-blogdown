@@ -1,5 +1,5 @@
 ---
-title: "parallelly 1.26.0: Fast, concurrent setup of parallel workers (finally)"
+title: "parallelly 1.26.0: Fast, Concurrent Setup of Parallel Workers (Finally)"
 slug: parallelly-1.26.0
 date: 2021-06-10 15:00:00 -0700
 categories:
