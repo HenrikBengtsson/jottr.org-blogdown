@@ -1,5 +1,5 @@
 ---
-title: "parallelly 1.29.0: New skills and less communication latency on Linux"
+title: "parallelly 1.29.0: New Skills and Less Communication Latency on Linux"
 slug: parallelly-1.29.0
 date: 2021-11-22 21:00:00 -0800
 categories:
