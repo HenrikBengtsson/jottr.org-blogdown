@@ -21,7 +21,7 @@ tags:
 </div>
 
 
-**[parallelly]** 1.29.0 is on CRAN.  The **parallelly** package enhances the **parallel** package - our built-in R package for parallel processing - by improving on existing features and by adding new ones.  Somewhat simplified, **parallelly** provides the things that you would otherwise expect to find in the **parallel** package.  Also, the **parallelly** package provides the fundamental, low-level parts that the **[future]** package needs for local and remote parallelization.
+**[parallelly]** 1.29.0 is on CRAN.  The **parallelly** package enhances the **parallel** package - our built-in R package for parallel processing - by improving on existing features and by adding new ones.  Somewhat simplified, **parallelly** provides the things that you would otherwise expect to find in the **parallel** package.  The **[future]** package rely on the **parallelly** package internally for local and remote parallelization.
 
 Since my [previous post on **parallelly**](/2021/06/10/parallelly-1.26.0/) five months ago, the **parallelly** package had some bugs fixed, and it gained a few new features;
 
@@ -79,7 +79,7 @@ some_slow_fcn <- function(x) {
 }
 ```
 
-or, if they have an alternative, less preferred, fork-safe implementation, they could run that conditionally on R being executed in a forked child process:
+or, if they have an alternative, less preferred, non-fork-safe implementation, they could run that conditionally on R being executed in a forked child process:
 
 ```r
 some_slow_fcn <- function(x) {
@@ -118,12 +118,13 @@ isNodeAlive(cl)
 #> [1]  TRUE FALSE  TRUE
 ```
 
-The `isNodeAlive()` function works by getting the process IDs (PIDs)
-for the parallel workers and query the operating system to see if
-those processes are still running.  If the workers' PIDs are unknown,
-then `NA` is returned instead.  For instance, contrary to
-`parallelly::makeClusterPSOCK()`, `parallel::makeCluster()` does not
-record the PIDs and we get missing values as the result;
+The `isNodeAlive()` function works by querying the operating system to
+see if those processes are still running, based their process IDs
+(PIDs) recorded by `makeClusterPSOCK()` when launched.  If the
+workers' PIDs are unknown, then `NA` is returned instead.  For
+instance, contrary to `parallelly::makeClusterPSOCK()`,
+`parallel::makeCluster()` does not record the PIDs and we get missing
+values as the result;
 
 ```r
 library(parallelly)
@@ -233,7 +234,16 @@ cl <- makeClusterPSOCK(2L, rscript = c("nice", "*"))
 ```
 
 When used, `makeClusterPSOCK()` will expand `"*"` to the proper
-Rscript specification depending on running remotely or not.
+Rscript specification depending on running remotely or not.  To
+further emphasize the convenience of this, consider:
+
+```r
+workers <- c("localhost", "remote-machine.example.org")
+cl <- makeClusterPSOCK(workers, rscript = c("nice", "*"))
+```
+
+which launches two parallel workers - one running on local machine
+and one running on the remote machine.
 
 Note that, when using **[future]**, we can pass `rscript` to
 `plan(multisession)` and `plan(cluster)` to achieve the same thing, as
@@ -274,7 +284,8 @@ session.
 
 Starting with **parallelly** 1.29.0, we can now also _unset_
 environment variables, in case they are set on the cluster nodes.  Any
-named element with value `NA_character_` will be unset, e.g.
+named element with a missing value causes the corresponding
+environment variable to be unset, e.g.
 
 ```r
 cl <- makeClusterPSOCK(2, rscript_envs = c(_R_CHECK_LENGTH_1_CONDITION_ = NA_character_))
@@ -332,7 +343,7 @@ tasks went from 44 seconds down to 0.60 seconds, which is ~75 times
 less on average.  Does this mean your parallel code will run faster?
 No, it is just the communication _latency_ that has decreased.  But,
 why waste time on _waiting_ on your results when you don't have to?
-This is why we changed the defaults in **parallelly**.  It will also
+This is why I changed the defaults in **parallelly**.  It will also
 bring the experience on Unix on par with MS Windows and macOS.
 
 Note that the relatively high latency affects only Unix.  MS Windows
