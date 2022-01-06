@@ -209,11 +209,6 @@ url = "/archives"
     icon = "fa-twitter"
     url = "https://twitter.com/intent/tweet?text=%s"
 
-  [[params.sharingOptions]]
-    name = "Google+"
-    icon = "fa-google-plus"
-    url = "https://plus.google.com/share?url=%s"
-
   [params.header.rightLink]
     class = ""
     icon = ""
