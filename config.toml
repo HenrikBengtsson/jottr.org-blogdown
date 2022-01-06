@@ -202,7 +202,7 @@ url = "/archives"
   [[params.sharingOptions]]
     name = "Facebook"
     icon = "fa-facebook-official"
-    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
+    url = "https://www.facebook.com/sharer/sharer.php?u=%s%%0A%%0A%%23RStats"
 
   [[params.sharingOptions]]
     name = "Twitter"
