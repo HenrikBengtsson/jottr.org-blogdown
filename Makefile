@@ -6,6 +6,8 @@ start: hugo_version
 stop:
 	pkill hugo
 
+restart: stop start
+
 hugo_version:
 	@Rscript -e "cat(paste0(blogdown::hugo_version(),'\n'))"
 
