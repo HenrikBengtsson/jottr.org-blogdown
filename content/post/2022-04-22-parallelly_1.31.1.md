@@ -94,7 +94,7 @@ This will result in one R worker with only the **base** package _attached_;
 [1] ".GlobalEnv"   "Autoloads"    "package:base"
 ```
 
-But, note that more packages are _loaded_;
+Having said that, note that more packages are _loaded_;
 
 ```r
 > parallel::clusterEvalQ(cl, { loadedNamespaces() })
@@ -102,7 +102,7 @@ But, note that more packages are _loaded_;
 [1] "compiler" "parallel" "utils"    "base"    
 ```
 
-Like **base**, **compiler** is a package that R always loads. The **parallel** package is loaded because it provides the code for background R workers. The **utils** package is loaded because `makeClusterPSOCK()` validates that the workers are functional by collecting extra information from the R workers that later may be useful when reporting on errors. To skip this, pass argument `validate = FALSE`.
+Like **base**, **compiler** is a package that R always loads. The **parallel** package is loaded because it provides the code for running the background R workers. The **utils** package is loaded because `makeClusterPSOCK()` validates that the workers are functional by collecting extra information from the R workers that later may be useful when reporting on errors. To skip this, pass argument `validate = FALSE`.
 
 
 ### New argument `rscript_sh`
@@ -120,7 +120,7 @@ Over and out!
 
 * **parallelly** package: [CRAN](https://cran.r-project.org/package=parallelly), [GitHub](https://github.com/HenrikBengtsson/parallelly), [pkgdown](https://parallelly.futureverse.org)
 * **future** package: [CRAN](https://cran.r-project.org/package=future), [GitHub](https://github.com/HenrikBengtsson/future), [pkgdown](https://future.futureverse.org)
-* **future.apply** package: [CRAN](https://cran.r-project.org/package=future.apply), [GitHub](https://github.com/HenrikBengtsson/future.apply), [pkgdown](https://future.apply.futureverse.org)
+
 
 [Cgroups]: https://www.wikipedia.org/wiki/Cgroups
 [Rocker]: https://www.rocker-project.org/
