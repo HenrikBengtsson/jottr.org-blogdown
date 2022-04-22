@@ -101,7 +101,7 @@ But, note that more packages are _loaded_;
 [1] "compiler" "parallel" "utils"    "base"    
 ```
 
-Like **base**, **compiler** is a package that R always loads. The **parallel** package is loaded because it provides the code for background R workers. The **utils** package is loaded because `makeClusterPSOCK()` collects extra information from the R workers that may be useful when reporting on errors.
+Like **base**, **compiler** is a package that R always loads. The **parallel** package is loaded because it provides the code for background R workers. The **utils** package is loaded because `makeClusterPSOCK()` validates that the workers are functional by collecting extra information from the R workers that later may be useful when reporting on errors. To skip this, pass argument `validate = FALSE`.
 
 The new argument `rscript_sh` can be used in the rare case where one launches remote R workers on non-Unix machines from a Unix-like machine.  For example, if we from a Linux machine launch remote MS Windows workers, we need to use `rscript_sh = "cmd"`.
 
