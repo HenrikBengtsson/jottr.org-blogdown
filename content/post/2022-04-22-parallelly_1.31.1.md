@@ -23,7 +23,7 @@ tags:
 </div>
 
 
-**[parallelly]** 1.31.1 is on CRAN.  The **parallelly** package enhances the **parallel** package - our built-in R package for parallel processing - by improving on existing features and by adding new ones.  Somewhat simplified, **parallelly** provides the things that you would otherwise expect to find in the **parallel** package.  The **[future]** package rely on the **parallelly** package internally for local and remote parallelization.
+**[parallelly]** 1.31.1 is on CRAN.  The **parallelly** package enhances the **parallel** package - our built-in R package for parallel processing - by improving on existing features and by adding new ones.  Somewhat simplified, **parallelly** provides the things that you would otherwise expect to find in the **parallel** package.  The **[future]** package relies on the **parallelly** package internally for local and remote parallelization.
 
 Since my [previous post on **parallelly**](/2021/11/22/parallelly-1.29.0/) in November 2021, I've fixed a few bugs and added some new features to the package;
 
@@ -38,7 +38,7 @@ Below is a detailed description of these new features.  Some of them, and some o
 
 ##  availableCores() detects more cgroups settings
 
-_[Cgroups]_, short for control groups, is a low-level feature in Linux to control which and how much resources a process is allowed to use. This prevents individual processes from taking up all resources.  For example, an R process can be limited to use at most four CPU cores, even if the underlying hardware has 48 CPU cores. Imagine we parallelize with `parallel::detectCores()` background workers, e.g.
+_[Cgroups]_, short for control groups, is a low-level feature in Linux to control which and how much resources a process may use. This prevents individual processes from taking up all resources.  For example, an R process can be limited to use at most four CPU cores, even if the underlying hardware has 48 CPU cores. Imagine we parallelize with `parallel::detectCores()` background workers, e.g.
 
 ```r
 library(future)
@@ -67,9 +67,9 @@ An alternative to limit the CPU resources, is to throttle the average CPU load. 
 $ docker run --cpus=3.5 rocker/r-base
 ```
 
-In this case cgroups will throttle our R process to consume at most 350% worth of CPU on the host, where 100% corresponds to a single CPU.  In this case, `nproc` is of no use and simply give the number of CPUs on the host (e.g. 48).  Starting with **parallelly** 1.31.0, `parallelly::availableCores()` can detect that cgroups throttles R to an average load of 3.5 CPUs. Since we cannot run 3.5 parallel workers, `parallelly::availableCores()` rounds down to the nearest integer and return three (3).  The [RStudio Cloud] is one example where CPU throttling is used, so if you work in RStudio Cloud, use `parallelly::availableCores()` and you will be good.
+In this case, cgroups will throttle our R process to consume at most 350% worth of CPU on the host, where 100% corresponds to a single CPU.  Here, `nproc` is of no use and simply gives the number of CPUs on the host (e.g. 48).  Starting with **parallelly** 1.31.0, `parallelly::availableCores()` can detect that cgroups throttles R to an average load of 3.5 CPUs. Since we cannot run 3.5 parallel workers, `parallelly::availableCores()` rounds down to the nearest integer and return three (3).  The [RStudio Cloud] is one example where CPU throttling is used, so if you work in RStudio Cloud, use `parallelly::availableCores()` and you will be good.
 
-While talking about RStudio Cloud, if you use a free account, you have only access to a single CPU core ("nCPUs = 1").  In this case, `plan(multisession, workers = parallelly::availableCores())`, or equivalently, `plan(multisession)`, will fall back to sequential processing, because there is no point in running in parallel on a single core.  If you still want to _prototype_ parallel processing in a single-core environment, say with two cores, you can set option `parallelly.availableCores.min = 2`.  This makes `availableCores()` return two (2).
+While talking about RStudio Cloud, if you use a free account, you have access to only a single CPU core ("nCPUs = 1").  In this case, `plan(multisession, workers = parallelly::availableCores())`, or equivalently, `plan(multisession)`, will fall back to sequential processing, because there is no point in running in parallel on a single core.  If you still want to _prototype_ parallel processing in a single-core environment, say with two cores, you can set option `parallelly.availableCores.min = 2`.  This makes `availableCores()` return two (2).
 
 
 
@@ -80,7 +80,7 @@ Since **parallelly** 1.29.0, [`makeClusterPSOCK()`] has gained arguments `defaul
 
 ### New argument `default_packages`
 
-Argument `default_packages` controls which R packages are attached on each worker during startup.  Previously, it was only possible, via logical argument `methods` to control whether or not the **methods** package should be attached - an argument that stems from `parallel::makePSOCKcluster()`.  With the new `default_packages` argument we have full control of which packages are attached.  For instance, if we want to go minimal, we can do:
+Argument `default_packages` controls which R packages are attached on each worker during startup.  Previously, it was only possible, via logical argument `methods` to control whether or not the **methods** package should be attached - an argument that stems from `parallel::makePSOCKcluster()`.  With the new `default_packages` argument, we have full control of which packages are attached.  For instance, if we want to go minimal, we can do:
 
 ```r
 cl <- parallelly::makeClusterPSOCK(1, default_packages = "base")
@@ -107,7 +107,7 @@ Like **base**, **compiler** is a package that R always loads. The **parallel** p
 
 ### New argument `rscript_sh`
 
-The new argument `rscript_sh` can be used in the rare case where one launches remote R workers on non-Unix machines from a Unix-like machine.  For example, if we from a Linux machine launch remote MS Windows workers, we need to use `rscript_sh = "cmd"`.
+The new argument `rscript_sh` can be used in the rare case where one launches remote R workers on non-Unix machines from a Unix-like machine.  For example, if we, from a Linux machine launch remote MS Windows workers, we need to use `rscript_sh = "cmd"`.
 
 
 
