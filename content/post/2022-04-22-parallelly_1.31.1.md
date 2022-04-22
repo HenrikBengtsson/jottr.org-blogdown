@@ -32,10 +32,8 @@ Since my [previous post on **parallelly**](/2021/11/22/parallelly-1.29.0/) in No
  * `makeClusterPSOCK()` gained argument `default_packages` to control which packages to attach at startup on the R workers
  
  * `makeClusterPSOCK()` gained `rscript_sh` to explicitly control what type of shell quotes to use on the R workers
- 
- * Argument `rscript_args` of `makeClusterPSOCK()` now supports `"*"` values
 
-Some of the additions and bug fixes were added to version 1.30.0, while others to versions 1.31.0 and 1.31.1. Below is a detailed description of these new features.
+Below is a detailed description of these new features.  Some of them, and some of the bug fixes, were added to version 1.30.0, while others to versions 1.31.0 and 1.31.1.
 
 
 ##  availableCores() detects more cgroups settings
@@ -132,4 +130,3 @@ Over and out!
 [`availableCores()`]: https://parallelly.futureverse.org/reference/availableCores.html
 [`makeClusterPSOCK()`]: https://parallelly.futureverse.org/reference/makeClusterPSOCK.html
 [NEWS]: https://parallelly.futureverse.org/news/index.html
-
