@@ -79,6 +79,9 @@ While talking about RStudio Cloud, if you use a free account, you have only acce
 
 Since **parallelly** 1.29.0, [`makeClusterPSOCK()`] has gained arguments `default_packages` and `rscript_sh`.
 
+
+### New argument `default_packages`
+
 Argument `default_packages` controls which R packages are attached on each worker during startup.  Previously, it was only possible, via logical argument `methods` to control whether or not the **methods** package should be attached - an argument that stems from `parallel::makePSOCKcluster()`.  With the new `default_packages` argument we have full control of which packages are attached.  For instance, if we want to go minimal, we can do:
 
 ```r
@@ -103,14 +106,16 @@ But, note that more packages are _loaded_;
 
 Like **base**, **compiler** is a package that R always loads. The **parallel** package is loaded because it provides the code for background R workers. The **utils** package is loaded because `makeClusterPSOCK()` validates that the workers are functional by collecting extra information from the R workers that later may be useful when reporting on errors. To skip this, pass argument `validate = FALSE`.
 
+
+### New argument `rscript_sh`
+
 The new argument `rscript_sh` can be used in the rare case where one launches remote R workers on non-Unix machines from a Unix-like machine.  For example, if we from a Linux machine launch remote MS Windows workers, we need to use `rscript_sh = "cmd"`.
+
+
 
 That covers the most important additions to **parallelly**. For bug fixes and minor updates, please see [NEWS].
 
 Over and out!
-
-
-## Other posts related to parallelly
 
 
 ## Links
