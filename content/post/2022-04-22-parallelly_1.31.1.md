@@ -1,7 +1,7 @@
 ---
 title: "parallelly 1.31.1: Better at Inferring Number of CPU Cores with Cgroups and Linux Containers"
 slug: parallelly-1.31.1
-date: 2022-04-20 21:00:00 -0700
+date: 2022-04-22 11:00:00 -0700
 categories:
  - R
 tags:
