@@ -60,7 +60,7 @@ we get four parallel workers, which reflects the four CPU cores that cgroups giv
 $ docker run --cpuset-cpus=0-2,8 rocker/r-base
 ```
 
-then cgroups will isolate the Linux container to run on CPU cores 0, 1, 2, and 8 of the host.  In this case `nproc`, e.g. `system("nproc")` from with R, returns four (4), and therefore also `parallelly::availableCores()`.  Starting with **parallelly** 1.31.0, `parallelly::availableCores()` detects this also when `nproc` is not installed on the system.
+then cgroups will isolate the Linux container to run on CPU cores 0, 1, 2, and 8 of the host.  In this case `nproc`, e.g. `system("nproc")` from within R, returns four (4), and therefore also `parallelly::availableCores()`.  Starting with **parallelly** 1.31.0, `parallelly::availableCores()` detects this also when `nproc` is not installed on the system.
 An alternative to limit the CPU resources, is to throttle the average CPU load. Using Docker, this can be done as:
 
 ```sh
