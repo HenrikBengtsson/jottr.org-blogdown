@@ -67,7 +67,7 @@ This also means that we can use:
 
 ```r
 library(future)
-cl <- plan(cluster, rshcmd = "pjrsh")
+plan(cluster, rshcmd = "pjrsh")
 ```
 
 when using the **future** framework, which uses `makeClusterPSOCK()` and `availableWorkers()` internally.
@@ -94,7 +94,7 @@ and
 
 ```r
 library(future)
-cl <- plan(cluster)
+plan(cluster)
 ```
 
 
