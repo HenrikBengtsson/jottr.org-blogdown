@@ -33,7 +33,7 @@ might affect you and your users of your code.
 
 
 <figure style="margin-top: 3ex;">
-<img src="/post/detectCores_bad_vs_good.png" alt="TODO" style="width: 100%; margin: 0; margin-bottom: 2ex;"/>
+<img src="/post/detectCores_bad_vs_good.png" alt="Screenshots of two terminal-based, colored graphs each showing near 100% load on all 24 CPU cores. The load bars to the left are mostly red, whereas the ones to the right are most green. There is a shrug emoji, with the text \"do you want this?\" pointing to the left and the text "or that?" pointing to the right, located inbetween the two graphs." style="width: 100%; margin: 0; margin-bottom: 2ex;"/>
 <figcaption style="font-style: italic">
 
 Figure&nbsp;1: Using <code>detectCores()</code> risks overloading the
@@ -312,7 +312,7 @@ else.
 
 <div style="width: 38%; float: right;">
 <figure style="margin-top: 1ex;">
-<img src="/post/detectCores_bad.png" alt="TODO" style="width: 100%; margin: 0; margin-bottom: 2ex;"/>
+<img src="/post/detectCores_bad.png" alt="The left-handside graph of Figure 1, which shows mostly red bars at near 100% load for 24 CPU cores." style="width: 100%; margin: 0; margin-bottom: 2ex;"/>
 <figcaption>
 Figure 2: Overusing the CPU cores brings everything to a halt.
 </figcaption>
@@ -446,7 +446,7 @@ example, and a single core on a free RStudio Cloud account.
 
 <div style="width: 38%; float: right;">
 <figure style="margin-top: 1ex;">
-<img src="/post/detectCores_good.png" alt="TODO" style="width: 100%; margin: 0; margin-bottom: 2ex;"/>
+<img src="/post/detectCores_good.png" alt="The right-handside graph of Figure 1, which shows mostly green bars at near 100% load for 24 CPU cores." style="width: 100%; margin: 0; margin-bottom: 2ex;"/>
 <figcaption>
 Figure 3: If we avoid overusing the CPU cores, then everything will run
 much smoother and much faster.
