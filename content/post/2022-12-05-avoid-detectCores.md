@@ -27,7 +27,7 @@ make a bold request and ask you to:
 
 By reading this blog post, I hope you become more aware of the
 different problems that arise from using `detectCores()` and how they
-might affect you and your users of your code.
+might affect you and the users of your code.
 
 
 <figure style="margin-top: 3ex;">
