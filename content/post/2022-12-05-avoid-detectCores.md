@@ -265,11 +265,11 @@ the maximum 128 available on this R installation
 
 Thus, if we use `detectCores()`, our R code will not work on larger,
 modern machines.  This is a problem that will become more and more
-common as more users get access to more power computers.  Hopefully, R
-will increase this connection limit in a future release, but until
-then, you as the developer are responsible to handle also this case.
-To make your code agile to this limit, also if R increases it, you can
-use:
+common as more users get access to more powerful computers.
+Hopefully, R will increase this connection limit in a future release,
+but until then, you as the developer are responsible to handle also
+this case.  To make your code agile to this limit, also if R increases
+it, you can use:
 
 ```r
 ncores <- max(1L, detectCores(), na.rm = TRUE)
