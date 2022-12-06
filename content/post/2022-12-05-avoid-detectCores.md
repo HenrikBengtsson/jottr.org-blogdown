@@ -305,8 +305,8 @@ that we should know of:
 
 **When is this relevant?  The answer is: Always!**  This is because as
 package developers, we cannot really know when this occurs, because we
-never know on what type of hardware and system our code will run on.
-So, we have to account for these unknowns too.
+never know on what type of hardware and system our code will run.  So,
+we have to account for these unknowns too.
 
 Let's look at some real-world case where using `detectCores()` can
 become a real issue.
