@@ -276,9 +276,9 @@ ncores <- max(1L, detectCores(), na.rm = TRUE)
 ncores <- min(parallelly::freeConnections(), ncores)
 ```
 
-This is guaranteed to return at least one and never more than what is
-required to create a PSOCK, SOCK, and MPI cluster with than many
-parallel workers.
+This is guaranteed to return at least zero (sic!) and never more than
+what is required to create a PSOCK, SOCK, and MPI cluster with than
+many parallel workers.
 
 _Shameless advertisement for the **[parallelly]** package_: If you
 instead use `parallelly::availableCores()`, then you can control the
