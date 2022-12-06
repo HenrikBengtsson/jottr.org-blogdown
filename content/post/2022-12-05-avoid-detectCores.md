@@ -1,7 +1,7 @@
 ---
 title: "Please Avoid detectCores() in your R Packages"
 slug: "avoid-detectCores"
-date: 2022-12-05 21:10:00 -0800
+date: 2022-12-05 21:00:00 -0800
 categories:
  - R
 tags:
