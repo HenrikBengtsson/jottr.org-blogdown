@@ -239,14 +239,14 @@ uses `parallelly::makeClusterPSOCK()`.
 
 R has a limit in the number of connections it can have open at any
 time.  As of R 4.2.2, [the limit is 125 open connections].  Because of
-this, we can use at most 125 parallel PSOCK, SOCK, or MPI workers.
-Some connections may be already used for other reasons, so in practice
-this limit is a bit lower.  To find the number of free connections at
-any time, we can use [`parallelly::freeConnections()`].  If we try to
-launch a cluster with too many workers, there will not be enough
-connections available for the communication, the setup of the cluster
-will fail.  For example, a user running on a 192-core machine, will
-see errors such as:
+this, we can use at most 125 parallel PSOCK, SOCK, or MPI workers.  In
+practice, this limit is lower, because some connections may already be
+in use elsewhere.  To find the current number of free connections, we
+can use [`parallelly::freeConnections()`].  If we try to launch a
+cluster with too many workers, there will not be enough connections
+available for the communication, the setup of the cluster will fail.
+For example, a user running on a 192-core machine will get errors such
+as:
 
 ```r
 > cl <- parallel::makeCluster(detectCores())
@@ -259,7 +259,7 @@ and
 ```r
 > cl <- parallelly::makeClusterPSOCK(detectCores())
 Error: Cannot create 192 parallel PSOCK nodes. Each node needs
-one connection but there are only 124 connections left out of
+one connection, but there are only 124 connections left out of
 the maximum 128 available on this R installation
 ```
 
@@ -267,7 +267,7 @@ Thus, if we use `detectCores()`, our R code will not work on larger,
 modern machines.  This is a problem that will become more and more
 common as more users get access to more power computers.  Hopefully, R
 will increase this connection limit in a future release, but until
-then, you as the developer is responsible to handle also this case.
+then, you as the developer are responsible to handle also this case.
 To make your code agile to this limit, also if R increases it, you can
 use:
 
@@ -281,8 +281,8 @@ required to create a PSOCK, SOCK, and MPI cluster with than many
 parallel workers.
 
 _Shameless advertisement for the **[parallelly]** package_: If you
-instead use ``parallelly::availableCores()`, then you can control the
-maximum number of available cores by setting R option
+instead use `parallelly::availableCores()`, then you can control the
+maximum number of cores available by setting R option
 `parallelly.availableCores.system`, or environment variable
 `R_PARALLELLY_AVAILABLECORES_SYSTEM`,
 e.g. `R_PARALLELLY_AVAILABLECORES_SYSTEM=120`.
@@ -563,7 +563,7 @@ GitHub.</small>
 UPDATE 2022-12-06: [Alex Chubaty pointed out another problem], where
 `detectCores()` can be too large on modern machines, e.g. machines
 with 128 or 192 CPU cores.  I've added Section 'Issue 3: detectCores()
-may return too many cores' address this problem.
+may return too many cores' explaining and addressing this problem.
 
 
 [`parallelly::availableCores()`]: https://parallelly.futureverse.org/reference/availableCores.html
