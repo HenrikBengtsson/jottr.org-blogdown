@@ -17,8 +17,6 @@ tags:
  
 ---
 
-# Please Avoid detectCores() in your R Packages
-
 The `detectCores()` function of the **parallel** package is probably
 one of the most used functions when it comes to setting the number of
 parallel workers to use in R.  In this blog post, I'll try to explain
