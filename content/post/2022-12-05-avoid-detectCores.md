@@ -296,7 +296,7 @@ where the CPUs are overwhelmed because a software tool assumes it has
 exclusive right to all cores.  
 -->
 
-#### A shared computer
+### 3b. A shared computer
 
 In the academia and the industry, it is common that several users
 share the same compute server och set of compute nodes.  It might be
@@ -354,7 +354,7 @@ impact.  The risk for that to happen by mistake is much lower than
 when using `detectCores()` by default.
 
 
-#### A shared compute cluster with many machines
+### 3c. A shared compute cluster with many machines
 
 Other, larger compute systems, often referred to as high-performance
 compute (HPC) cluster, have a job scheduler for running scripts in
@@ -396,7 +396,7 @@ Sharing Facility (LSF), PBS/Torque, and Simple Linux Utility for
 Resource Management (Slurm).
 
 
-#### Running R via CGroups on in a Linux container
+### 3d. Running R via CGroups on in a Linux container
 
 This far, we have been concerned about the overuse of the CPU cores
 affecting other processes and other users running on the same machine.
