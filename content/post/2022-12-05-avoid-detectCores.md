@@ -215,7 +215,7 @@ contrast, `parallelly::availableCores()` handles this case via
 argument `omit`, which makes it easier to understand the code, e.g.
 
 ```r
-ncores <- max(1L, detectCores(), na.rm = TRUE)
+ncores <- availableCores(omit = 2)
 ```
 
 This construct is guaranteed to return at least one core, e.g. if
