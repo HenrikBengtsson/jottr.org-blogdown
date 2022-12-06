@@ -244,9 +244,9 @@ practice, this limit is lower, because some connections may already be
 in use elsewhere.  To find the current number of free connections, we
 can use [`parallelly::freeConnections()`].  If we try to launch a
 cluster with too many workers, there will not be enough connections
-available for the communication, the setup of the cluster will fail.
-For example, a user running on a 192-core machine will get errors such
-as:
+available for the communication and the setup of the cluster will
+fail.  For example, a user running on a 192-core machine will get
+errors such as:
 
 ```r
 > cl <- parallel::makeCluster(detectCores())
