@@ -199,9 +199,11 @@ ncores <- detectCores() - 2L
 
 in your code.  If you use these constructs, a user of your code might
 end up with zero or a negative number of cores here, which another way
-we can end up with an error downstream.  So, we need to account also
-for this case, which we can do by tweaking the above `max()` solution,
-e.g.
+we can end up with an error downstream.  A real-world example of this
+problem can be found in continous integration (CI) services,
+e.g. `detectCores()` returns 2 in GitHub Actions jobs.  So, we need to
+account also for this case, which we can do by using the above
+`max()` solution, e.g.
 
 ```r
 ncores <- max(1L, detectCores() - 2L, na.rm = TRUE)
@@ -227,12 +229,12 @@ be one in all three cases.
 ## Issue 3: detectCores() does not give the number of "allowed" cores
 
 There's a note in `help("detectCores", package = "parallel")` that
-touches on the above problem, but also on other important limitations
+touches on the above problems, but also on other important limitations
 that we should know of:
 
 > **Note**
 > 
-> This is not suitable for use directly for the `mc.cores` argument of
+> This [= `detectCores()`] is not suitable for use directly for the `mc.cores` argument of
 > `mclapply` nor specifying the number of cores in
 > `makeCluster`. First because it may return `NA`, second because it
 > does not give the number of _allowed_ cores, and third because on
@@ -271,8 +273,8 @@ assumes it can use all cores on the machine (i.e. `detectCores()`
 cores), the user will end up running the machine at 200% of its
 capacity.  Whenever we use over 100% of the available CPU resources,
 we get penalized and waste our computational cycles on overhead from
-context switching, sub-optional memory access, and more.  This is
-where we end up with the situation illustrated in the left part of
+context switching, sub-optimal memory access, and more.  This is where
+we end up with the situation illustrated in the left part of
 Figure&nbsp;1.
 
 Note also that users might not know that they use an R function that
@@ -410,7 +412,7 @@ allocated CPU cores.  Some HPC job schedulers have this feature
 enabled, but not all of them.  You find the same feature for Linux
 containers, e.g. we can limit the number of CPU cores, or throttle the
 CPU load, using command-line options when you launch a Docker
-container using `docker run --cpuset-cpus=0-2,8 …` or `docker run
+container, e.g. `docker run --cpuset-cpus=0-2,8 …` or `docker run
 --cpu=3.4 …`.
 
 So, if you are a user on a system where compute resources are
@@ -420,7 +422,7 @@ parallel workers, that is, try to use more cores than available to
 you, then you will clog up your own analysis.  The behavior would be
 the same as if you request 96 parallel workers on your local
 eight-core notebook (the scenario in the left panel of Figure&nbsp;1),
-with the exception that you will not overhead the computer.
+with the exception that you will not overheat the computer.
 
 The problem with `detectCores()` is that it returns the number of CPU
 cores on the hardware, regardless of the cgroups settings.  So, if
@@ -458,7 +460,7 @@ people run into "out there".  We should also accept that we cannot
 predict on what type of compute environment our R code will run on.
 Unfortunately, I don't have a magic solution that addresses all the
 problems reported here.  That said, I think the best we can do is to
-be conservative and don't make hard-code decision on parallelization
+be conservative and don't make hard-coded decisions on parallelization
 in our R packages and R scripts.
 
 Because of this, I argue that **the safest is to design your R package
@@ -485,7 +487,7 @@ from using `availableCores()`, see
 Believe it or not, there's actually more to be said on this topic, but
 I think this is already more than a mouthful, so I will save that for
 another blog post.  If you made it this far, I applaud you and I thank
-you for your interest.  If you agree, or disagree, or have additional thoughts around this, please feel free to reach out on the [Future Discussion Forums].
+you for your interest.  If you agree, or disagree, or have additional thoughts around this, please feel free to reach out on the [Future Discussions Forum].
 
 Over and out,
 
@@ -500,4 +502,4 @@ GitHub.</small>
 [parallelly]: https://parallelly.futureverse.org
 [searching GitHub]: https://github.com/search?q=org%3Acran+language%3Ar+%22detectCores%28%29%22&type=code
 [searching Bioc::CodeSearch]: https://code.bioconductor.org/search/search?q=detectCores%28%29)
-[Future Discussion Forums]: https://github.com/HenrikBengtsson/future/discussions/
+[Future Discussions Forum]: https://github.com/HenrikBengtsson/future/discussions/
