@@ -215,7 +215,7 @@ contrast, `parallelly::availableCores()` handles this case via
 argument `omit`, which makes it easier to understand the code, e.g.
 
 ```r
-ncores <- availableCores(omit = 2L)
+ncores <- max(1L, detectCores(), na.rm = TRUE)
 ```
 
 This construct is guaranteed to return at least one core, e.g. if
@@ -223,8 +223,72 @@ there are one, two, or three CPU cores on this machine, `ncores` will
 be one in all three cases.
 
 
+### Issue 3: detectCores() may return too many cores
 
-## Issue 3: detectCores() does not give the number of "allowed" cores
+When we use PSOCK, SOCK, or MPI clusters as defined by the
+**parallel** package, the communication between the main R session and
+the parallel workers is done via R socket connection.  Low-level
+functions `parallel::makeCluster()`, `parallelly::makeClusterPSOCK()`,
+and legacy `snow::makeCluster()` create these types of clusters.  In
+turn, there are higher-level functions that rely on these low-level
+functions, e.g. `doParallel::registerDoParallel()` uses
+`parallel::makeCluster()` if you are on MS Windows,
+`BiocParallel::SnowParam()` uses `snow::makeCluster()`, and
+`plan(multisession)` and `plan(cluster)` of the **[future]** package
+uses `parallelly::makeClusterPSOCK()`.
+
+R has a limit in the number of connections it can have open at any
+time.  As of R 4.2.2, [the limit is 125 open connections].  Because of
+this, we can use at most 125 parallel PSOCK, SOCK, or MPI workers.
+Some connections may be already used for other reasons, so in practice
+this limit is a bit lower.  To find the number of free connections at
+any time, we can use [`parallelly::freeConnections()`].  If we try to
+launch a cluster with too many workers, there will not be enough
+connections available for the communication, the setup of the cluster
+will fail.  For example, a user running on a 192-core machine, will
+see errors such as:
+
+```r
+> cl <- parallel::makeCluster(detectCores())
+Error in socketAccept(socket = socket, blocking = TRUE, open = "a+b",  : 
+  all connections are in use
+```
+
+and
+
+```r
+> cl <- parallelly::makeClusterPSOCK(detectCores())
+Error: Cannot create 192 parallel PSOCK nodes. Each node needs
+one connection but there are only 124 connections left out of
+the maximum 128 available on this R installation
+```
+
+Thus, if we use `detectCores()`, our R code will not work on larger,
+modern machines.  This is a problem that will become more and more
+common as more users get access to more power computers.  Hopefully, R
+will increase this connection limit in a future release, but until
+then, you as the developer is responsible to handle also this case.
+To make your code agile to this limit, also if R increases it, you can
+use:
+
+```r
+ncores <- max(1L, detectCores(), na.rm = TRUE)
+ncores <- min(parallelly::freeConnections(), ncores)
+```
+
+This is guaranteed to return at least one and never more than what is
+required to create a PSOCK, SOCK, and MPI cluster with than many
+parallel workers.
+
+_Shameless advertisement for the **[parallelly]** package_: If you
+instead use ``parallelly::availableCores()`, then you can control the
+maximum number of available cores by setting R option
+`parallelly.availableCores.system`, or environment variable
+`R_PARALLELLY_AVAILABLECORES_SYSTEM`,
+e.g. `R_PARALLELLY_AVAILABLECORES_SYSTEM=120`.
+
+
+## Issue 4: detectCores() does not give the number of "allowed" cores
 
 There's a note in `help("detectCores", package = "parallel")` that
 touches on the above problems, but also on other important limitations
@@ -248,7 +312,7 @@ Let's look at some real-world case where using `detectCores()` can
 become a real issue.
 
 
-### 3a. A personal computer
+### 4a. A personal computer
 
 A user might want to run other software tools at the same time while
 running the R analysis.  A very common pattern we find in R code is
@@ -296,7 +360,7 @@ where the CPUs are overwhelmed because a software tool assumes it has
 exclusive right to all cores.  
 -->
 
-### 3b. A shared computer
+### 4b. A shared computer
 
 In the academia and the industry, it is common that several users
 share the same compute server och set of compute nodes.  It might be
@@ -354,7 +418,7 @@ impact.  The risk for that to happen by mistake is much lower than
 when using `detectCores()` by default.
 
 
-### 3c. A shared compute cluster with many machines
+### 4c. A shared compute cluster with many machines
 
 Other, larger compute systems, often referred to as high-performance
 compute (HPC) cluster, have a job scheduler for running scripts in
@@ -396,7 +460,7 @@ Sharing Facility (LSF), PBS/Torque, and Simple Linux Utility for
 Resource Management (Slurm).
 
 
-### 3d. Running R via CGroups on in a Linux container
+### 4d. Running R via CGroups on in a Linux container
 
 This far, we have been concerned about the overuse of the CPU cores
 affecting other processes and other users running on the same machine.
@@ -485,7 +549,9 @@ from using `availableCores()`, see
 Believe it or not, there's actually more to be said on this topic, but
 I think this is already more than a mouthful, so I will save that for
 another blog post.  If you made it this far, I applaud you and I thank
-you for your interest.  If you agree, or disagree, or have additional thoughts around this, please feel free to reach out on the [Future Discussions Forum].
+you for your interest.  If you agree, or disagree, or have additional
+thoughts around this, please feel free to reach out on the [Future
+Discussions Forum].
 
 Over and out,
 
@@ -494,10 +560,18 @@ Henrik
 <small><sup>1</sup> Searching code on GitHub, requires you to log in to
 GitHub.</small>
 
+UPDATE 2022-12-06: [Alex Chubaty pointed out another problem], where
+`detectCores()` can be too large on modern machines, e.g. machines
+with 128 or 192 CPU cores.  I've added Section 'Issue 3: detectCores()
+may return too many cores' address this problem.
 
 
 [`parallelly::availableCores()`]: https://parallelly.futureverse.org/reference/availableCores.html
-[parallelly]: https://parallelly.futureverse.org
 [searching GitHub]: https://github.com/search?q=org%3Acran+language%3Ar+%22detectCores%28%29%22&type=code
 [searching Bioc::CodeSearch]: https://code.bioconductor.org/search/search?q=detectCores%28%29)
 [Future Discussions Forum]: https://github.com/HenrikBengtsson/future/discussions/
+[the limit is 125 open connections]: https://github.com/HenrikBengtsson/Wishlist-for-R/issues/28
+[Alex Chubaty pointed out another problem]: https://github.com/HenrikBengtsson/future/discussions/656
+[`parallelly::freeConnections()`]: https://parallelly.futureverse.org/reference/availableConnections.html
+[future]: https://future.futureverse.org
+[parallelly]: https://parallelly.futureverse.org
