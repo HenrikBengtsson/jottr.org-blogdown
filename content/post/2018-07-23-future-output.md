@@ -97,7 +97,7 @@ Hostname: my-laptop
 
 This also works when we use nested futures wherever the workers are located (local or remote), e.g.
 ```r
-> plan(list(sequential, multiprocess))
+> plan(list(sequential, multisession))
 > a %<-% {
 +   printf("PID: %d\n", Sys.getpid())
 +   b %<-% {
@@ -185,7 +185,7 @@ it can be used for simple troubleshooting and narrowing down errors.  For exampl
 ```r
 > library(doFuture)
 > registerDoFuture()
-> plan(multiprocess)
+> plan(multisession)
 > nbrOfWorkers()
 [1] 2
 > x <- list(1, "2", 3, 4, 5)
@@ -222,6 +222,8 @@ So, lots of work ahead.  Oh well ...
 
 _Happy futuring!_
 
+
+UPDATE 2022-12-11: Update examples that used the deprecated `multiprocess` future backend alias to use the `multisession` backend.
 
 
 ## See also

@@ -48,7 +48,7 @@ y <- lapply(X, FUN = my_slow_function)
 in parallel on your local computer.  The most straightforward way to achieve this is to use:
 ```r
 library(future.apply)
-plan(multiprocess)
+plan(multisession)
 y <- future_lapply(X, FUN = my_slow_function)
 ```
 If you have SSH access to a few machines here and there with R installed, you can use:
@@ -80,6 +80,8 @@ So, backed by **[future.tests]**, I feel more comfortable attacking some of the 
 
 _Happy futuring!_
 
+
+UPDATE 2022-12-11: Update examples that used the deprecated `multiprocess` future backend alias to use the `multisession` backend.
 
 ## See also
 

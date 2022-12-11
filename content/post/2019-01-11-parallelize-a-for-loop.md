@@ -103,7 +103,7 @@ The parallelization update that takes the least amount of changes is provided by
 
 ```r
 library(future.apply)
-plan(multiprocess) ## => parallelize on your local computer
+plan(multisession) ## => parallelize on your local computer
 
 X <- 1:5
 
@@ -123,7 +123,7 @@ If we wish to use the **[foreach]** framework, we can do:
 ```r
 library(doFuture)
 registerDoFuture()
-plan(multiprocess)
+plan(multisession)
 
 X <- 1:5
 
@@ -310,7 +310,7 @@ In order to lower the risk for mistakes, and because I think the for-loop-to-lap
 
 ```r
 library(future)
-plan(multiprocess)
+plan(multisession)
 
 X <- 1:5
 
@@ -331,7 +331,7 @@ However, one neat feature of this bare-bones approach is that we have full contr
 
 ```r
 library(future)
-plan(multiprocess)
+plan(multisession)
 
 X <- 1:5
 
@@ -350,7 +350,7 @@ This is just one example.  I've run into several other use cases in my large-sca
 (*) I do have some ideas on how to get the above code snippet to do automatic workload balancing "under the hood", but that is quite far into the future of the future framework.
 
 
-
+UPDATE 2022-12-11: Update examples that used the deprecated `multiprocess` future backend alias to use the `multisession` backend.
 
 
 [doFuture]: https://cran.r-project.org/package=doFuture
