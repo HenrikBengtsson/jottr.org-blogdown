@@ -280,9 +280,12 @@ This is guaranteed to return at least zero (sic!) and never more than
 what is required to create a PSOCK, SOCK, and MPI cluster with than
 many parallel workers.
 
-_Shameless advertisement for the **[parallelly]** package_: If you
-instead use `parallelly::availableCores()`, then you can control the
-maximum number of cores available by setting R option
+_Shameless advertisement for the **[parallelly]** package_: In the
+upcoming **parallelly** 1.33.0 version, you can use
+`parallelly::availableCores(constraints = "connections")` to limit
+the result to the current number of available R connections.  In
+addition, you can control the maximum number of cores that
+`availableCores()` returns by setting R option
 `parallelly.availableCores.system`, or environment variable
 `R_PARALLELLY_AVAILABLECORES_SYSTEM`,
 e.g. `R_PARALLELLY_AVAILABLECORES_SYSTEM=120`.
@@ -565,6 +568,8 @@ UPDATE 2022-12-06: [Alex Chubaty pointed out another problem], where
 with 128 or 192 CPU cores.  I've added Section 'Issue 3: detectCores()
 may return too many cores' explaining and addressing this problem.
 
+UPDATE 2022-12-11: Mention upcoming
+`parallelly::availableCores(constraints = "connections")`.
 
 [`parallelly::availableCores()`]: https://parallelly.futureverse.org/reference/availableCores.html
 [searching GitHub]: https://github.com/search?q=org%3Acran+language%3Ar+%22detectCores%28%29%22&type=code
