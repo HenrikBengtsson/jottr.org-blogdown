@@ -1,8 +1,7 @@
 ---
 title: "progressr 0.13.0: cli + progressr = ♥"
 slug: progressr-0.13.0
-date: 2023-01-10 16:00:00 -0800
-author: Henrik Bengtsson
+date: 2023-01-10 19:00:00 -0800
 categories:
  - R
 tags:
@@ -14,14 +13,17 @@ tags:
  - future
 ---
 
+**[progressr]** 0.13.0 is on CRAN.  In the recent releases,
+**progressr** gained support for using **[cli]** to generate progress
+bars.  Vice versa, **cli** can now report on progress via the
+**progressr** framework.  Here are the details.  For other updates to
+**progressr**, see [NEWS].
+
 <div style="padding: 2ex; float: right;"/>
  <center>
    <img src="/post/three_in_chinese.gif" alt="Three strokes writing three in Chinese"/>
  </center>
 </div>
-
-
-**[progressr]** 0.13.0 is on CRAN.
 
 The **progressr** package, part of the [futureverse], provides a
 minimal API for reporting progress updates in R. The design is to
@@ -34,10 +36,6 @@ prefer auditory feedback.  The **progressr** package works also when
 processing R in parallel or
 distributed using the **[future]** framework.  
 
-In the most recent releases, **progressr** gained support for using
-**[cli]** to generate progress bars.  Vice versa, **cli** can now
-report on progress via the **progressr** framework.  Here are the
-details.  For other updates to **progressr**, see [NEWS].
 
 
 ## Use 'cli' progress bars for 'progressr' reporting
@@ -143,7 +141,7 @@ via the **progressr** framework _or_ the **cli** framework.
 
 To safely configure the above for all your _interactive_ R sessions, I
 recommend adding something like the following to your `~/.Rprofile`
-file:
+file (or in a standalone file using the **[startup]** package):
 
 ```r
 if (interactive() && requireNamespace("progressr", quietly = TRUE)) {
@@ -205,3 +203,4 @@ Now, go make some progress!
 [purrr]: https://purrr.tidyverse.org/
 [cli]: https://cli.r-lib.org/
 [beepr]: https://cran.r-project.org/package=beepr
+[startup]: https://cran.r-project.org/package=startup
