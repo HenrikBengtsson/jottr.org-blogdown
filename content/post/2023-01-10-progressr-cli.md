@@ -191,7 +191,7 @@ Now, go make some progress!
 ## Links
 
 * **progressr** package: [CRAN](https://cran.r-project.org/package=progressr), [GitHub](https://github.com/HenrikBengtsson/progressr), [pkgdown](https://progressr.futureverse.org)
-* **cli** package: [CRAN](https://cran.r-project.org/package=cli), [GitHub](https://github.com/HenrikBengtsson/progressr), [pkgdown](https://cli.r-lib.org/)
+* **cli** package: [CRAN](https://cran.r-project.org/package=cli), [GitHub](https://github.com/r-lib/cli), [pkgdown](https://cli.r-lib.org/)
 * **future** package: [CRAN](https://cran.r-project.org/package=future), [GitHub](https://github.com/HenrikBengtsson/future), [pkgdown](https://future.futureverse.org)
 
 
