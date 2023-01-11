@@ -1,7 +1,7 @@
 ---
 title: "progressr 0.13.0: cli + progressr = ♥"
 slug: progressr-0.13.0
-date: 2023-01-10 16:00:00 -0800
+date: 2023-01-10 19:00:00 -0800
 categories:
  - R
 tags:
@@ -10,16 +10,20 @@ tags:
  - progressr
  - cli
  - purrr
+ - future
 ---
+
+**[progressr]** 0.13.0 is on CRAN.  In the recent releases,
+**progressr** gained support for using **[cli]** to generate progress
+bars.  Vice versa, **cli** can now report on progress via the
+**progressr** framework.  Here are the details.  For other updates to
+**progressr**, see [NEWS].
 
 <div style="padding: 2ex; float: right;"/>
  <center>
    <img src="/post/three_in_chinese.gif" alt="Three strokes writing three in Chinese"/>
  </center>
 </div>
-
-
-**[progressr]** 0.13.0 is on CRAN.
 
 The **progressr** package, part of the [futureverse], provides a
 minimal API for reporting progress updates in R. The design is to
@@ -32,10 +36,6 @@ prefer auditory feedback.  The **progressr** package works also when
 processing R in parallel or
 distributed using the **[future]** framework.  
 
-In the most recent releases, **progressr** gained support for using
-**[cli]** to generate progress bars.  Vice versa, **cli** can now
-report on progress via the **progressr** framework.  Here are the
-details.  For other updates to **progressr**, see [NEWS].
 
 
 ## Use 'cli' progress bars for 'progressr' reporting
@@ -48,8 +48,8 @@ progressr::handlers(global = TRUE)  ## automatically report on progress
 progressr::handlers("cli")          ## ... using a 'cli' progress bar
 ```
 
-With these globals settings (e.g. in your `~/.Rprofile` file; see below),
-progress is reported as:
+With these globals settings (e.g. in your `~/.Rprofile` file; see
+below), R reports progress as:
 
 ```r
 library(progressr)
@@ -59,9 +59,9 @@ y <- slow_sum(1:10)
 ![Animation of a one-line, green-blocks cli progress bar in the terminal growing from 0% to 100% with an ETA estimate at the end](/post/handler_cli-default-slow_sum.svg)
 
 
-Just like regular **cli** progress bars, these ones can be customized
-in the exact same way.  For instance, if you use the following from
-one of the **cli** examples:
+Just like regular **cli** progress bars, you can customize these in
+the same way.  For instance, if you use the following from one of the
+**cli** examples:
 
 ```r
 options(cli.progress_bar_style = list(
@@ -79,8 +79,8 @@ you'll get:
 ## Configure 'cli' to Report Progress via 'progressr'
 
 You might have heard that **[purrr]** recently gained support for
-reporting on progress.  If you didn't, you can read about it in
-Tidyverse blog post '[purrr 1.0.0]' on 2022-12-20.  The gist is to
+reporting on progress.  If you didn't, you can read about it in the
+tidyverse blog post '[purrr 1.0.0]' on 2022-12-20.  The gist is to
 pass `.progress = TRUE` to the **purrr** function of interest, and
 it'll show a progress bar while it runs.  For example, assume we the
 following slow function for calculating the square root:
@@ -102,7 +102,7 @@ we'll see a progress bar appearing after about two seconds:
 This progress bar is produced by the **cli** package.  Now, the neat
 thing with the **cli** package is that you can tell it to pass on the
 progress reporting to another progress framework, including that of
-the **progressr** package.  To do this, set R option:
+the **progressr** package.  To do this, set the R option:
 
 ```r
 options(cli.progress_handlers = "progressr")
@@ -131,17 +131,17 @@ progressr::handlers(global = TRUE)
 progressr::handlers(c("beepr", "cli", "rstudio"))
 ```
 
-progress will be reported _concurrently_ via audio using different
+R will report progress _concurrently_ via audio using different
 **[beepr]** sounds, via the terminal as a **cli** progress bar, and
-the RStudio built-in progress bar, whenever progress is reported via
-the **progressr** framework _or_ the **cli** framework.
+the RStudio's built-in progress bar - whenever progress is reported
+via the **progressr** framework _or_ the **cli** framework.
 
 
 ## Customize progress reporting when R starts
 
 To safely configure the above for all your _interactive_ R sessions, I
 recommend adding something like the following to your `~/.Rprofile`
-file:
+file (or in a standalone file using the **[startup]** package):
 
 ```r
 if (interactive() && requireNamespace("progressr", quietly = TRUE)) {
@@ -176,7 +176,7 @@ See the **[progressr]** website for other, additional ways of
 reporting on progress.
 
 
-Now, make some progress!
+Now, go make some progress!
 
 
 
@@ -203,3 +203,4 @@ Now, make some progress!
 [purrr]: https://purrr.tidyverse.org/
 [cli]: https://cli.r-lib.org/
 [beepr]: https://cran.r-project.org/package=beepr
+[startup]: https://cran.r-project.org/package=startup
