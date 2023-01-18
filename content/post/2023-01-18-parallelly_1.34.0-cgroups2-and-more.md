@@ -31,8 +31,8 @@ the [NEWS].
 ## Added support for CGroups v2
 
 [`availableCores()`] and [`availableWorkers()`] gained support for
-Linux Control Groups v2, a.k.a. CGroups v2, besides CGroups v1, which
-has been supported since **[parallelly]** 1.31.0 (2022-04-07) and
+Linux Control Groups v2 (CGroups v2), besides CGroups v1, which has
+been supported since **[parallelly]** 1.31.0 (2022-04-07) and
 partially since 1.22.0 (2020-12-12).  This means that if you use
 `availableCores()` and `availableWorkers()` in your R code, it will
 better respect the number of CPU cores that the Linux system has made
