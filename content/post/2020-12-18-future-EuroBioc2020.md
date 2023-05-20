@@ -32,7 +32,7 @@ You'll find my slides (39 slides + Q&A slides; 35 minutes) below:
 * [Title & Abstract](/presentations/EuroBioc2020/BengtssonH_20201218-futures-EuroBioc2020.abstract.txt)
 * [HTML](https://docs.google.com/presentation/d/e/2PACX-1vTVyeaWRH251Pm8BfrlH1yK4Bd_YojEmo1I0VFxkoehnoxYJXglLdDf5T6_bTDv7lFJjwrXNYFBtfHT/pub?start=false&loop=false&delayms=10000) (Google Slides; requires online access)
 * [PDF](/presentations/EuroBioc2020/BengtssonH_20201218-futures-EuroBioc2020.pdf) (flat slides)
-* Video (to be uploaded by the organizers)
+* [Video](https://www.youtube.com/watch?v=Ph8jItU7Dlo) (YouTube)
 
 I want to thank the organizers for inviting me to this Bioconductor conference.  The [Bioconductor Project](http://bioconductor.org/) provides a powerful and an important technical and social environment for developing and conducting computational research in bioinformatics and genomics.  It has a great, world-wide community and engaging leadership which effortlessly keep delivering great tools (~2,000 R packages as of December 2020) and [training](http://bioconductor.org/help/course-materials/) year after year.  I am honored for the opportunity to give a keynote presentation to this community.
 

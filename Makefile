@@ -1,7 +1,7 @@
 WEBSITE=https://www.jottr.org
 
 start: hugo_version
-	Rscript -e "cat(paste0('\nBlogdown PID: ',Sys.getpid(),'\n'))" -e "blogdown::serve_site()" &
+	Rscript -e "cat(paste0('\nBlogdown PID: ',Sys.getpid(),'\n'))" -e "blogdown::serve_site(port = print(port4me::port4me('jottr.org')))" &
 
 stop:
 	pkill hugo
