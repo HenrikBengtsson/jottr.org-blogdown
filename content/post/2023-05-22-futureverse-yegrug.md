@@ -29,7 +29,7 @@ Below are the slides from my presentation at the [Edmonton R User Group Meetup (
 
 Title: Futureverse - A Unifying Parallelization Framework in R for Everyone  
 Speaker: Henrik Bengtsson  
-Slides: [HTML](https://docs.google.com/presentation/d/1FRtEn_NYmOZT3mjAzF1KhfitrVlqSTBqjXcp7PQplNY/pub?start=true&loop=false&delayms=60000&slide=id.gf778290f24_0_165), PDF (46 slides)  
+Slides: [HTML](https://docs.google.com/presentation/d/e/2PACX-1vQfbnVRHZhIkEAd3_pNG14N5JQqE0jqCohSq-m-uWAcA7StF-BuHdOz0IGDhcRI3K681DxoXoqA7pwp/pub?start=true&loop=false&delayms=60000), [PDF](/presentations/yegrug2023/BengtssonH_20230522-Futureverse-YEGRUG.pdf) (46 slides)  
 
 Thank you Péter Sólymos and the YEGRUG for the invitate and the opportunity!
 
