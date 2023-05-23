@@ -23,7 +23,7 @@ tags:
 
 <div style="margin: 2ex; width: 100%;"/>
 <center>
-<img src="/post/YEGRUG_20230522.webp" alt="The YEGRUG poster slide for the Futureverse presentation on 2023-05-22" style="width: 80%;"/>
+<img src="/post/YEGRUG_20230522.webp" alt="The YEGRUG poster slide for the Futureverse presentation on 2023-05-22" style="width: 80%; border: 1px solid black;"/>
 </center>
 </div>
 
