@@ -21,8 +21,10 @@ tags:
  
 ---
 
-<div style="margin: 2ex;"/>
+<div style="margin: 2ex; width: 100%;"/>
+<center>
 <img src="/post/YEGRUG_20230522.webp" alt="The YEGRUG poster slide for the Futureverse presentation on 2023-05-22" style="width: 80%;"/>
+</center>
 </div>
 
 Below are the slides from my presentation at the [Edmonton R User Group Meetup (YEGRUG)](https://www.meetup.com/edmonton-r-user-group-yegrug/events/fxvdbtyfchbhc/) on May 22, 2023:
