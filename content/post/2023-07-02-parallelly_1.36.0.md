@@ -128,9 +128,9 @@ isNodeAlive(cl)
 ## [1] TRUE FALSE
 ```
 
-We can see that there is something wrong with the one of our workers
-if cal `print()` on our `RichSOCKcluster` and `RichSOCKnode` objects,
-e.g.
+We can also see that there is something wrong with the one of our
+workers if we call `print()` on our `RichSOCKcluster` and
+`RichSOCKnode` objects, e.g.
 
 ```r
 print(cl)
@@ -156,7 +156,7 @@ print(cl[[2]])
 ```
 
 If we end up with a broken parallel worker like this, we can since
-**parallelly** (>= 1.36.0) use `cloneNode()` to recreate the original
+**parallelly** 1.36.0 use `cloneNode()` to re-create the original
 worker.  In our example, we can do:
 
 ```r
@@ -188,7 +188,7 @@ str(y)
 We can also use `cloneNode()` to launch _additional_ workers of the
 same kind. For example, say we want to launch two more local workers
 and one more remote worker, and append them to the current cluster.
-One way to achive that is:
+One way to achieve that is:
 
 ```r
 cl <- c(cl, cloneNode(cl[c(1,1,2)]))
@@ -200,9 +200,9 @@ print(cl)
 ```
 
 Now, consider we launching many heavy parallel tasks, where some of
-the run on remote machines.  However, after some time, we realize that
-we have launched tasks that will take much longer to resolve than we
-first anticipated.  If we don't want to wait for this to resolve by
+them run on remote machines.  However, after some time, we realize
+that we have launched tasks that will take much longer to resolve than
+we first anticipated.  If we don't want to wait for this to resolve by
 itself, we can choose to terminate some or all of the workers using
 `killNode()`.  For example,
 
@@ -212,8 +212,8 @@ killNode(cl)
 ```
 
 will kill all parallel workers in our cluster, even if they are busy
-running tasks.  We can confirm that they are no longer alive, by
-calling:
+running tasks.  We can confirm that these worker processes are no
+longer alive by calling:
 
 ```r
 isNodeAlive(cl)
@@ -232,15 +232,14 @@ isNodeAlive(cl)
 ```
 
 
-## The use of these new cluster managing skills in the future ecosystem
+## The new cluster managing skills enhances the future ecosystem
 
 When we use the [`cluster`] and [`multisession`] parallel backends of
 the **future** package, we rely on the **parallelly** package
-internally.  Because of the new ability to check whether a remote
-parallel worker is alive or not, the Futureverse can now give more
-informative error message whenever we fail to launch a future or when
-we fail to retrieve the results of one.  For example, if a parallel
-worker has terminated, we might get:
+internally.  Thanks to these new abilities, the Futureverse can now
+give more informative error message whenever we fail to launch a
+future or when we fail to retrieve the results of one.  For example,
+if a parallel worker has terminated, we might get:
 
 ```r
 f <- future(slow_fcn(42))
@@ -258,6 +257,24 @@ problem occurring over and over for a particular machine, it might
 suggest that there is an issue on that machine and we want to exclude
 it from further processing.
 
+We could imagine that the **future** package would not only give us
+information on why things went wrong, but it could theoretically also
+try to fix the problem automatically.  For instance, it could
+automatically re-create the crashed worker using `cloneNode()`, and
+re-launch the future.  It is on the roadmap to add such robustness to
+the future ecosystem later on. However, there are several things to
+consider when doing so.  For instance, what should happen if it was
+not a glitch, but that there is one parallel task that keeps crashing
+the parallel workers over and over?  Most certainly, we want to only
+retry a fixed number of times, before giving up, otherwise we might
+get stuck in a never ending procedure.  But even so, what if the
+problematic parallel code brings down the machine where it runs?  If
+we have automatic restart of workers and parallel tasks, we might end
+up bringing down multiple machines before we notice the problem.  So,
+although it appears fairly straightforward to handle crashed workers
+automatically, we need to come up with a robust, well-behaving
+strategy for doing so before we can implement it.
+
 I hope you find this useful. If you have questions or comments on
 **parallelly**, or the Futureverse in general, please use the
 [Futureverse Discussion forum].
@@ -273,7 +290,6 @@ Henrik
 
 [future]: https://future.futureverse.org
 [parallelly]: https://parallelly.futureverse.org
-[progressr]: https://progressr.futureverse.org
 [Futureverse]: https://www.futureverse.org
 [Futureverse Discussion forum]: https://github.com/HenrikBengtsson/future/discussions/
 [`cloneNode()`]: https://parallelly.futureverse.org/reference/cloneNode.html
